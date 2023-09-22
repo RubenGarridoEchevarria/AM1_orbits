@@ -14,15 +14,15 @@ def F_Kepler(U):
    
    return array( [Vx , Vy , -x/mr, -y/mr] )
 
-N = 100
-print(N)
+N = 10000
+
 U = array([1,0,0,1])
-dt = 0.01
+dt = 0.001
 x = array( zeros (N) )
 y = array (zeros (N) )
 
 x[0]= U[0]
-y[0]= U[0]
+y[0]= U[1]
 
  
 for i in range(0,N):
