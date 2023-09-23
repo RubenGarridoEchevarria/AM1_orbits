@@ -16,7 +16,7 @@ x[0] = u[0]                 #Asigno el primer valor de la x del vector de posici
 y[0] = u[1]                 #Asigno el primer valor de la y del vector de posición al primer valor de la condición inicial de u en y
 
 
-F1=1
+
 
 
 for i in range(0,n):
