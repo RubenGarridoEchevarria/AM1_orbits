@@ -21,15 +21,32 @@ y[0] = u[1]                 #Asigno el primer valor de la y del vector de posici
 
 for i in range(0,n):
 
-    F = array( [ u[2], u[3], -u[0]/(u[0]**2+u[1]**2)**1.5 , -u[1]/( u[0]**2 + u[1]**2)**1.5] )  #Froumula de F=[dot(rx), dot(ry), dot(dot(rx)), dot(dot(ry))] velocidad en x y en y, aceleración en x y en y
+    F1 = array( [ u[2], u[3], -u[0]/(u[0]**2+u[1]**2)**1.5 , -u[1]/( u[0]**2 + u[1]**2)**1.5] )  #Froumula de F=[dot(rx), dot(ry), dot(dot(rx)), dot(dot(ry))] velocidad en x y en y, aceleración en x y en y
 
-    u = u + dt * F
+    K1 = dt * F1
+    
+    F2 = array( [ (u[2]+1/2*K1),  (u[3]+1/2*K1), -(u[0]+1/2*dt)/((u[0]+1/2*dt)**2+(u[1]+1/2*dt)**2)**1.5] )
 
-    x[i] = u[0]           #Meto las nueva componente calculada de la coordenada x en la matrix de x
-    y[i] = u[1]           #Meto la nuueva componente calculada de la coordenada y en la matrix de y
+    K2 = dt * F2
+
+    F3 = array( [ (u[2]+1/2*K2),  (u[3]+1/2*K2), -(u[0]+1/2*dt)/((u[0]+1/2*dt)**2+(u[1]+1/2*dt)**2)**1.5] )
+
+    K3 = dt * F3
+
+    F4 = array( [ (u[2]+K3),  (u[3]+K3), -(u[0]+dt)/((u[0]+dt)**2+(u[1]+dt)**2)**1.5] )
+
+    K4 = dt*F4
+
+    print(K4)
 
 
-plt.plot(x,y)
-plt.show()
+    u = u + 1/6*(K1 + 2*K2 + 2*K3 + K4)
+    print(u)
 
-print(x)
+    #x[i] = u[0]           #Meto las nueva componente calculada de la coordenada x en la matrix de x
+    #y[i] = u[1]           #Meto la nuueva componente calculada de la coordenada y en la matrix de y
+
+
+#plt.plot(x,y)
+#plt.show()
+
