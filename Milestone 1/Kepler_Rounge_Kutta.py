@@ -54,3 +54,4 @@ for i in range(0,n):
 plt.plot(x,y)
 plt.show()
 
+del()
