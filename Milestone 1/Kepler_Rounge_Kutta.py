@@ -1,13 +1,13 @@
 
-##Milestone 1 Kepler usando Rounge-Kutta de cuarto orden
+##Milestone 1 Kepler usando Runge-Kutta de cuarto orden
 
 
 from numpy import array, zeros
 import matplotlib.pyplot as plt
 
 u = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
-n=7500                    #Número de pasos de tiempo
-dt=0.001                   #Paso de tiempo 
+n=1000                    #Número de pasos de tiempo
+dt=0.01                   #Paso de tiempo 
 
 x = array( zeros(n) )     #Posición x del vector de posición   
 y = array( zeros(n))      #Posición y del vector de posición
@@ -23,30 +23,34 @@ for i in range(0,n):
 
     F1 = array( [ u[2], u[3], -u[0]/(u[0]**2+u[1]**2)**1.5 , -u[1]/( u[0]**2 + u[1]**2)**1.5] )  #Froumula de F=[dot(rx), dot(ry), dot(dot(rx)), dot(dot(ry))] velocidad en x y en y, aceleración en x y en y
 
-    K1 = dt * F1
-    
-    F2 = array( [ (u[2]+1/2*K1),  (u[3]+1/2*K1), -(u[0]+1/2*dt)/((u[0]+1/2*dt)**2+(u[1]+1/2*dt)**2)**1.5] )
+    K10 = dt * F1[0]
+    K11 = dt * F1[1]
+    K12 = dt * F1[2]
+    K13 = dt * F1[3]
 
-    K2 = dt * F2
+    K20 = dt * (F1[0] + 1/2 * K12)
+    K21 = dt * (F1[1] + 1/2 * K13)
+    K22 = dt * F1[2]
+    K23 = dt * F1[3]
 
-    F3 = array( [ (u[2]+1/2*K2),  (u[3]+1/2*K2), -(u[0]+1/2*dt)/((u[0]+1/2*dt)**2+(u[1]+1/2*dt)**2)**1.5] )
+    K30 = dt * (F1[0] + 1/2 * K22)
+    K31 = dt * (F1[1] + 1/2 * K23)
+    K32 = dt * F1[2]
+    K33 = dt * F1[3]
 
-    K3 = dt * F3
-
-    F4 = array( [ (u[2]+K3),  (u[3]+K3), -(u[0]+dt)/((u[0]+dt)**2+(u[1]+dt)**2)**1.5] )
-
-    K4 = dt*F4
-
-    print(K4)
-
-
-    u = u + 1/6*(K1 + 2*K2 + 2*K3 + K4)
-    print(u)
-
-    #x[i] = u[0]           #Meto las nueva componente calculada de la coordenada x en la matrix de x
-    #y[i] = u[1]           #Meto la nuueva componente calculada de la coordenada y en la matrix de y
+    K40 = dt * (F1[0] + K32)
+    K41 = dt * (F1[1] + K33)
+    K42 = dt * F1[2]
+    K43 = dt * F1[3]
 
 
-#plt.plot(x,y)
-#plt.show()
+    u = array ( [ u[0] + (K10 + 2*K20 + 2*K30 + K40)/6 , u[1] + (K11 + 2*K21 + 2*K31 + K41)/6 , u[2] + (K12 + 2*K22 + 2*K32 + K42)/6 , u[3] + (K13 + 2*K23 + 2*K33 + K43)/6 ] )
+
+
+    x[i] = u[0]           #Meto las nueva componente calculada de la coordenada x en la matrix de x
+    y[i] = u[1]           #Meto la nuueva componente calculada de la coordenada y en la matrix de y
+
+
+plt.plot(x,y)
+plt.show()
 
