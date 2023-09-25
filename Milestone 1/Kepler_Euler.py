@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 u = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
 n=6300                    #Número de pasos de tiempo
-dt=0.001                   #Paso de tiempo 
+dt=0.01                   #Paso de tiempo 
 
 x = array( zeros(n) )     #Posición x del vector de posición   
 y = array( zeros(n))      #Posición y del vector de posición
