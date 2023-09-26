@@ -38,10 +38,10 @@ for i in range(0,n):
     x[i] = u[0]           #Meto las nueva componente calculada de la coordenada x en la matrix de x
     y[i] = u[1]           #Meto la nuueva componente calculada de la coordenada y en la matrix de y
 
-#plt.plot(x,y)
-#plt.show()
+plt.plot(x,y)
+plt.show()
 
-del()
+
 
 # Metodo alternativo para Crank-Nicolson???
 
@@ -57,15 +57,15 @@ def CrankNicolson( dt, u_2 , n ):
 
         u_2[:,i+1] = fsolve(CN_res, u_2[:,i])
 
-        x_2[i] = u[0]
-        y_2[i] = u[1]
+        x_2[i] = u_2[0]
+        y_2[i] = u_2[1]
  
 
     return u_2
 
 
 plt.plot(x_2,y_2)
-plt.plot()
+plt.show()
 
 
 
