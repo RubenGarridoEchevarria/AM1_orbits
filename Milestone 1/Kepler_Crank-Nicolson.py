@@ -7,7 +7,6 @@ from scipy.optimize import newton
 import matplotlib.pyplot as plt
 
 u = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
-U = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
 
 
 n=6300                  #Número de pasos de tiempo
@@ -16,8 +15,6 @@ dt=0.001                   #Paso de tiempo
 x = array( zeros(n) )     #Posición x del vector de posición   
 y = array( zeros(n))      #Posición y del vector de posición
 
-x_1 = array( zeros(n) )     #Posición x del vector de posición   
-y_1 = array( zeros(n))      #Posición y del vector de posición
 
 
 x[0] = u[0]                 #Asigno el primer valor de la x del vector de posición al primer valor de la condición inicial de u en x
@@ -50,21 +47,18 @@ plt.show()
 # Metodo alternativo para Crank-Nicolson???
  
 @njit
-def Crank_Nicolson(U, dt, t, F ): 
 
+def Crank_Nicolson(U, dt, t, F_e ): 
+    
     def Residual_CN(X): 
          
-         return  X - a - dt/2 *  F(X, t + dt)
+         
+         return  X - a - dt/2 *  F_e(X, t + dt)
 
-    a = U  +  dt/2 * F( u, t)  
+    a = U  +  dt/2 * F_e( u, t)  
     return newton( Residual_CN, U )
 
 
-x_1[i] = U[0]           #Meto las nueva componente calculada de la coordenada x en la matrix de x
-y_1[i] = U[1]           #Meto la nuueva componente calculada de la coordenada y en la matrix de y
-
-plt.plot(x_1,y_1)
-plt.show()
 
 
 
