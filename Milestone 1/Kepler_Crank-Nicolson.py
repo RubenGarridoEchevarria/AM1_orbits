@@ -7,14 +7,23 @@ from scipy.optimize import newton
 import matplotlib.pyplot as plt
 
 u = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
+U = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
 
-
-n=6300                  #Número de pasos de tiempo
-dt=0.001                   #Paso de tiempo 
+n=66                   #Número de pasos de tiempo
+dt=0.1                   #Paso de tiempo 
 
 x = array( zeros(n) )     #Posición x del vector de posición   
 y = array( zeros(n))      #Posición y del vector de posición
 
+def F_Kepler(U):            #Programa con el paradigma funcional 
+   
+   
+   
+   x, y, Vx, Vy = U[0], U[1], U[2], U[3]
+   mr = (x**2 + y**2)**1.5
+   
+   
+   return array( [Vx , Vy , -x/mr, -y/mr] )
 
 
 x[0] = u[0]                 #Asigno el primer valor de la x del vector de posición al primer valor de la condición inicial de u en x
@@ -39,6 +48,7 @@ for i in range(0,n):
     x[i] = u[0]           #Meto las nueva componente calculada de la coordenada x en la matrix de x
     y[i] = u[1]           #Meto la nuueva componente calculada de la coordenada y en la matrix de y
 
+plt.axis('equal')
 plt.plot(x,y)
 plt.show()
 
@@ -48,17 +58,18 @@ plt.show()
  
 @njit
 
-def Crank_Nicolson(U, dt, t, F_e ): 
+def Crank_Nicolson(U, dt, t, F_Kepler ): 
     
     def Residual_CN(X): 
          
          
-         return  X - a - dt/2 *  F_e(X, t + dt)
+         return  X - a - dt/2 *  F_Kepler(X, t + dt)
 
-    a = U  +  dt/2 * F_e( u, t)  
+    a = U  +  dt/2 * F_Kepler( U, t)  
     return newton( Residual_CN, U )
 
 
+print(U)
 
 
 

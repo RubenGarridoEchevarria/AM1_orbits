@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 u = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
 n=6300                    #Número de pasos de tiempo
-dt=0.01                   #Paso de tiempo 
+dt=0.001                   #Paso de tiempo 
 
 x = array( zeros(n) )     #Posición x del vector de posición   
 y = array( zeros(n))      #Posición y del vector de posición
@@ -17,6 +17,15 @@ y[0] = u[1]                 #Asigno el primer valor de la y del vector de posici
 
 
 
+def F_Kepler(u):            #Programa con el paradigma funcional 
+   
+   
+   
+   x, y, Vx, Vy = u[0], u[1], u[2], u[3]
+   mr = (x**2 + y**2)**1.5
+   
+   
+   return array( [Vx , Vy , -x/mr, -y/mr] )
 
 for i in range(0,n):
 
@@ -54,7 +63,7 @@ for i in range(0,n):
     x[i] = u[0]           #Meto las nueva componente calculada de la coordenada x en la matrix de x
     y[i] = u[1]           #Meto la nuueva componente calculada de la coordenada y en la matrix de y
 
-
+plt.axis('equal')
 plt.plot(x,y)
 plt.show()
 
