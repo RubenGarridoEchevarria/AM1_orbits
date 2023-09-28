@@ -18,7 +18,6 @@ y[0] = u[1]                 #Asigno el primer valor de la y del vector de posici
 
 
 
-
 for i in range(0,n):
 
     F1 = array( [ u[2], u[3], -u[0]/(u[0]**2+u[1]**2)**1.5 , -u[1]/( u[0]**2 + u[1]**2)**1.5] )  #Froumula de F=[dot(rx), dot(ry), dot(dot(rx)), dot(dot(ry))] velocidad en x y en y, aceleración en x y en y
