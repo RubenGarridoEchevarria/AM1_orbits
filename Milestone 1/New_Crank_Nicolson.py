@@ -3,7 +3,7 @@ from numpy import array, zeros
 from scipy.optimize import newton
 import matplotlib.pyplot as plt
 
-n=3000 
+n=80
 dt=0.1
 
 U = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
@@ -37,7 +37,7 @@ for i in range(1,n):
     x[i] = U[0]           
     y[i] = U[1]  
 
-
+plt.axis('equal')
 plt.plot(x,y)
 plt.show()
 
