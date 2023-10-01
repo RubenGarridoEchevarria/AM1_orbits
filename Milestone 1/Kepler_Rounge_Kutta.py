@@ -12,8 +12,6 @@ dt=0.01                   #Paso de tiempo
 x = array( zeros(n) )     #Posición x del vector de posición   
 y = array( zeros(n))      #Posición y del vector de posición
 
-x[0] = u[0]                 #Asigno el primer valor de la x del vector de posición al primer valor de la condición inicial de u en x
-y[0] = u[1]                 #Asigno el primer valor de la y del vector de posición al primer valor de la condición inicial de u en y
 
 
 

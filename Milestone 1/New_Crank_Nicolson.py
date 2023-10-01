@@ -3,12 +3,16 @@ from numpy import array, zeros
 from scipy.optimize import newton
 import matplotlib.pyplot as plt
 
-n=6000  
-dt=0.01  
+n=3000 
+dt=0.1
 
 U = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
 x = array( zeros(n) )     #Posición x del vector de posición   
 y = array( zeros(n))      #Posición y del vector de posición
+
+x[0] = U[0]                 #Asigno el primer valor de la x del vector de posición al primer valor de la condición inicial de u en x
+y[0] = U[1]                 #Asigno el primer valor de la y del vector de posición al primer valor de la condición inicial de u en y
+
 
 def F_Kepler(U):            #Programa con el paradigma funcional 
    
