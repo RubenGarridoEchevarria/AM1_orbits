@@ -7,6 +7,8 @@ n=6000
 dt=0.01  
 
 U = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
+x = array( zeros(n) )     #Posición x del vector de posición   
+y = array( zeros(n))      #Posición y del vector de posición
 
 def F_Kepler(U):            #Programa con el paradigma funcional 
    
@@ -28,4 +30,10 @@ def G(x):
 for i in range(1,n):
 
     U=newton(G, U)
+    x[i] = U[0]           
+    y[i] = U[1]  
+
+
+plt.plot(x,y)
+plt.show()
 
