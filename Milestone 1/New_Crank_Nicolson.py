@@ -14,7 +14,7 @@ x[0] = U[0]                 #Asigno el primer valor de la x del vector de posici
 y[0] = U[1]                 #Asigno el primer valor de la y del vector de posición al primer valor de la condición inicial de u en y
 
 
-def F_Kepler(U):            #Programa con el paradigma funcional 
+def F_Kepler(U):            #Programa con el paradigma funcional definición de la función de Kepler
    
    
    
@@ -26,9 +26,9 @@ def F_Kepler(U):            #Programa con el paradigma funcional
      
 
 
-def G(x):
+def G(X):
 
-    return x-U-dt/2*(F_Kepler(U)+F_Kepler(x))
+    return X-U-dt/2*(F_Kepler(U)+F_Kepler(X))
 
 
 for i in range(1,n):
