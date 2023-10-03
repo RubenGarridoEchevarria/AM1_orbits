@@ -45,6 +45,6 @@ plt.plot(x,y)
 plt.show()
 
 
-def Euler(U, dt, t, F):
+def Euler(U, dt, t, F_Kepler):
 
-    return U + dt * F(U,t)
+    return U + dt * F_Kepler(U,t)
