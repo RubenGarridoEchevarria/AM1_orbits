@@ -2,10 +2,8 @@
 import matplotlib.pyplot as plt
 from numpy import array
 from numpy import linspace 
-
 import sys
-sys.path.append('..')
-
+sys.path.append('..')  
 
 from Milestone_1.Kepler_Euler import F_Kepler
 from Milestone_1.Kepler_Euler import Euler
