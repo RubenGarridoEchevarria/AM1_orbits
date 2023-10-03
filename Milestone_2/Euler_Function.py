@@ -3,9 +3,13 @@ import matplotlib.pyplot as plt
 from numpy import array
 from numpy import linspace 
 
+import sys
+sys.path.append('..')
 
-from Ampliacion_de_matematicas.Milestone_1.Kepler_Euler import F_Kepler
-from Ampliacion_de_matematicas.Milestone_1.Kepler_Euler import Euler
+
+from Milestone_1.Kepler_Euler import F_Kepler
+from Milestone_1.Kepler_Euler import Euler
+import Cauchy_Problem
 
 
 
