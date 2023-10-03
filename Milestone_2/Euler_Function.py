@@ -11,6 +11,7 @@ import Cauchy_Problem
 
 
 
+
 def Euler_function(tf, N, U0):
     
     t = linspace(0,tf,N)
