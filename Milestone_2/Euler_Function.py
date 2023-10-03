@@ -2,8 +2,7 @@
 import matplotlib.pyplot as plt
 from numpy import array
 from numpy import linspace 
-from Milestone_1.Kepler_Euler import F_Kepler
-from Milestone_1.Kepler_Euler import Euler
+import 
 import Cauchy_Problem
 
 
