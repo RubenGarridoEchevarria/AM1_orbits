@@ -6,7 +6,7 @@ from numpy import array, zeros
 import matplotlib.pyplot as plt
 
 U = array( [1, 0, 0, 1] )  #Condición inicial de la ecuación diferncial
-n=63000                    #Número de pasos de tiempo
+n=65000                    #Número de pasos de tiempo
 dt=0.01                   #Paso de tiempo 
 
 x = array( zeros(n) )     #Posición x del vector de posición   
