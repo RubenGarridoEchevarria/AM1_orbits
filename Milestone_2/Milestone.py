@@ -2,9 +2,9 @@
 import matplotlib.pyplot as plt
 from numpy import array
 from numpy import linspace 
-from Temporal_integrator import Euler
+from Temporal_integrator import Euler, Crank_Nicolson 
 from Kepler_Orbits import F_Kepler
-import Cauchy_Problem
+from Cauchy_Problem import Cauchy_problem
 
 
 
@@ -13,8 +13,16 @@ def Euler_function(tf, N, U0):
     
     t = linspace(0,tf,N)
 
-    temporal_integrator = Euler
-    U = Cauchy_Problem(F_Kepler, t, U0, temporal_integrator=Euler)
+    temporal_scheme = [(Euler), Crank_Nicolson]
+
+    for (method) in temporal_scheme:
+
+
+        U = Cauchy_problem(F_Kepler, t, U0, method)
+
+
+
+
     plt.plot( U[:,0] , U[:,1], "." )
     plt.show()
 
