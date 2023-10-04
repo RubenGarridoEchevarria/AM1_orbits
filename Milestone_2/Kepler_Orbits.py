@@ -1,11 +1,12 @@
 
 from numpy import array
 
-def F_Kepler(U):           
+def F_Kepler(U,t):           
    
-   
-   
-   x, y, Vx, Vy = U[0], U[1], U[2], U[3]
+   x = U[0]
+   y = U[1]
+   Vx = U[2]
+   Vy = U[3]
    mr = (x**2 + y**2)**1.5
    
    
