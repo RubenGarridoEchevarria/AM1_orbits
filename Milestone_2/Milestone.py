@@ -13,14 +13,26 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
     
     t = linspace(0,tf,N)            #Creo el vector de tiempos
 
-    Selector= input("Selecione el integrador temporal: 1 = Euler, 2 = Crank-Nicolson")
-    if Selector == 1:
-
-        temporal_scheme =  Euler        #Eligo que integrador temporal que va a usar para resolver el programa
+    Selector= input("Selecione el integrador temporal: 1 = Euler, 2 = Crank-Nicolson")  #Eligo que integrador temporal que va a usar para resolver el programa
     
-    if Selector == 2:
-        
-        temporal_scheme = Crank_Nicolson
+
+    try:
+        Selector=float(Selector)
+
+        if Selector == 1:
+
+                temporal_scheme =  Euler        
+    
+        if Selector == 2:
+
+                temporal_scheme = Crank_Nicolson
+
+    except ValueError:
+          print("El valor introducido no es válido")
+    
+
+
+
 
     U = Cauchy_problem(F_Kepler, t, U0, temporal_scheme)       #La solución la resulvo llamndo a problema de Cauchy metiendo en el primer argumento al F de Kepler
 
