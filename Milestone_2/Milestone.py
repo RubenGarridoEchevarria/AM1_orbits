@@ -19,6 +19,7 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
         temporal_scheme =  Euler        #Eligo que integrador temporal que va a usar para resolver el programa
     
     if Selector == 2:
+        
         temporal_scheme = Crank_Nicolson
 
     U = Cauchy_problem(F_Kepler, t, U0, temporal_scheme)       #La solución la resulvo llamndo a problema de Cauchy metiendo en el primer argumento al F de Kepler
