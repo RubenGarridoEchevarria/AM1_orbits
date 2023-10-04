@@ -1,5 +1,7 @@
 
-def F_Kepler(U):            #Programa con el paradigma funcional 
+from numpy import array
+
+def F_Kepler(U):           
    
    
    

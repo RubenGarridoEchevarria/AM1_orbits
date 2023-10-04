@@ -2,11 +2,8 @@
 import matplotlib.pyplot as plt
 from numpy import array
 from numpy import linspace 
-import sys
-sys.path.append('..')  
-
-from Milestone_1 import Kepler_Euler
-
+from Temporal_integrator import Euler
+from Kepler_Orbits import F_Kepler
 import Cauchy_Problem
 
 
@@ -16,8 +13,8 @@ def Euler_function(tf, N, U0):
     
     t = linspace(0,tf,N)
 
-    temporal_integrator = Kepler_Euler.Euler
-    U = Cauchy_Problem(Kepler_Euler.F_Kepler, t, U0, temporal_integrator=Euler)
+    temporal_integrator = Euler
+    U = Cauchy_Problem(F_Kepler, t, U0, temporal_integrator=Euler)
     plt.plot( U[:,0] , U[:,1], "." )
     plt.show()
 
