@@ -13,7 +13,7 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
     
     t = linspace(0,tf,N)            #Creo el vector de tiempos
 
-    Selector= imput("Selecione el integrador temporal: 1 = Euler, 2 = Crank-Nicolson")
+    Selector= input("Selecione el integrador temporal: 1 = Euler, 2 = Crank-Nicolson")
     if Selector == 1:
 
         temporal_scheme =  Euler        #Eligo que integrador temporal que va a usar para resolver el programa
