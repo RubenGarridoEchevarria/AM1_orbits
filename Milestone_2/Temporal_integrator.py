@@ -10,11 +10,11 @@ def Euler(U, dt, t, F_Kepler):         #Resuelve el problema de Cauchy con el m�
 
 
 
-def Crank_Nicolson(U, dt, t, F_Kepler):
+def Crank_Nicolson(U, dt, t, F_Kepler):  #Resuelve el problema de Cauchy con el método de Crank-Nicolson
 
-    def residual(X):
+    def residual(X):                        #Define la función residual que solo tiene como argumento X, todo lo demás le viene dado por los datod de las demás funciones
 
-        return X-a-dt/2*F_Kepler(X, t+dt)
+        return X-a-dt/2*F_Kepler(X, t+dt)   #Devuleve la imagen que es un sistema de ecuaciones no linela
     
 
     a = U + dt/2*F_Kepler(U, t)
@@ -22,4 +22,4 @@ def Crank_Nicolson(U, dt, t, F_Kepler):
 
 
 
-    return newton(Crank_Nicolson, U)
+    return newton(Crank_Nicolson, U)    #Resuleve el sistema de ecuaciones no lineal por el método de Newton
