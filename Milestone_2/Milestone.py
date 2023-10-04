@@ -9,16 +9,13 @@ from Cauchy_Problem import Cauchy_problem
 
 
 
-def Euler_function(tf, N, U0):
+def Milestone_function(tf, N, U0):
     
     t = linspace(0,tf,N)
 
-    temporal_scheme = [(Euler), Crank_Nicolson]
+    temporal_scheme = [(Euler), (Crank_Nicolson)]
 
-    for (method) in temporal_scheme:
-
-
-        U = Cauchy_problem(F_Kepler, t, U0, method)
+    U = Cauchy_problem(F_Kepler, t, U0, temporal_scheme=Euler)
 
 
 
@@ -28,7 +25,7 @@ def Euler_function(tf, N, U0):
 
 
 
-Euler_function(tf=100,N=100, U0=array([1,0,0,1]))
+Milestone_function(tf=100,N=100, U0=array([1,0,0,1]))
 
 
 
