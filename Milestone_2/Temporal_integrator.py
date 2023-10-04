@@ -6,7 +6,7 @@ from scipy.optimize import newton
 
 def Euler(U, dt, t, F_Kepler):         #Resuelve el problema de Cauchy con el método de Euler
 
-    return U + dt * F_Kepler(U)     #La solución en el paso siguiente será la solución en el paso actual más el paso de tiempo por la F de kepler en ese instante de timepo
+    return U + dt * F_Kepler(U,t)     #La solución en el paso siguiente será la solución en el paso actual más el paso de tiempo por la F de kepler en ese instante de tiempo
 
 
 

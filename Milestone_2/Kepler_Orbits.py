@@ -1,7 +1,7 @@
 
 from numpy import array
 
-def F_Kepler(U):           
+def F_Kepler(U,t):           
    
    x = U[0]
    y = U[1]
