@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 from numpy import array
 from numpy import linspace 
-from Temporal_integrator import Euler, Crank_Nicolson 
+from Temporal_integrator import Euler, Crank_Nicolson, RK4
 from Kepler_Orbits import F_Kepler
 from Cauchy_Problem import Cauchy_problem
 
@@ -13,7 +13,7 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
     
     t = linspace(0,tf,N)            #Creo el vector de tiempos
 
-    Selector= input("Selecione el integrador temporal: 1 = Euler, 2 = Crank-Nicolson")  #Eligo que integrador temporal que va a usar para resolver el programa
+    Selector= input("Selecione el integrador temporal: 1 = Euler, 2 = Crank-Nicolson, 3 = RK4")  #Eligo que integrador temporal que va a usar para resolver el programa
     
 
     try:
@@ -26,6 +26,9 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
         if Selector == 2:
 
                 temporal_scheme = Crank_Nicolson
+
+        if Selector == 3:
+                temporal_scheme = RK4
 
     except ValueError:
           print("El valor introducido no es válido")

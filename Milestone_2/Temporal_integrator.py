@@ -23,3 +23,14 @@ def Crank_Nicolson(U, dt, t, F):  #Resuelve el problema de Cauchy con el método
 
 
     return newton(residual, U)    #Resuleve el sistema de ecuaciones no lineal por el método de Newton
+
+
+
+def RK4(U, dt, t, F):
+
+    K1=F(U,t)
+    K2=F(U + dt * K1/2, t + dt/2)
+    K3=F(U + dt * K2/2, t + dt/2)
+    K4=F(U + dt * K3, t + dt)
+
+    return U + dt * (K1 + 2*K2 + 2*K3 +K4)/6
