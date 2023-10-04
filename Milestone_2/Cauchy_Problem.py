@@ -1,7 +1,7 @@
 
 from numpy import zeros
 
-from Milestone_1.Kepler_Euler import Euler
+from Temporal_integrator import Euler
 
 def Cauchy_problem(F,t, U0, Integrador_temporal):
     
