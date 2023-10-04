@@ -1,7 +1,8 @@
 
 from numpy import zeros
 
-from Temporal_integrator import Euler
+from Temporal_integrator import Euler 
+
 
 def Cauchy_problem(F,t, U0, Integrador_temporal):
     
@@ -12,7 +13,8 @@ def Cauchy_problem(F,t, U0, Integrador_temporal):
 
     for i in range(N):
 
-        U[i+1,:] = Integrador_temporal( U[i, :], t[i+1] - t[i], t[i],  F)
+    
+            U[i+1,:] = Integrador_temporal( U[i, :], t[i+1] - t[i], t[i],  F)
 
 
     return U
