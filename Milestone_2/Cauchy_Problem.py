@@ -5,7 +5,7 @@ from Kepler_Orbits import F_Kepler
 
 
 
-def Cauchy_problem(F,t, U0, Temporal_integrator):  #Defino el problema de Cauchy Con la F, la condición inicial y se introducé el integrador temporal que se usa
+def Cauchy_problem(t, U0, Temporal_integrator):  #Defino el problema de Cauchy Con la F, la condición inicial y se introducé el integrador temporal que se usa
     
     N = len(t)-1                #Creará la dimensión de la matriz donde se guradan cada paso de tiempo 
     Nv = len(U0)                #Creará la dimensión de la matriz donde se guarda cada componte del vector de Kepler para cualquier matriz

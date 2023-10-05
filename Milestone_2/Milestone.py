@@ -37,15 +37,16 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
 
 
 
-    U = Cauchy_problem(F_Kepler, t, U0, temporal_scheme)       #La solución la resulvo llamndo a problema de Cauchy metiendo en el primer argumento al F de Kepler
+    U = Cauchy_problem( t, U0, temporal_scheme)       #La solución la resulvo llamndo a problema de Cauchy metiendo en el primer argumento al F de Kepler
 
+    plt.axis('equal')
     plt.plot( U[:,0] , U[:,1], "." )            #Grafico los resultados
     plt.show()
-    print(U)
+   #print(U)
 
 
 
-Milestone_function(tf=100,N=5000, U0=array([1,0,0,1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
+Milestone_function(tf=100,N=500, U0=array([1,0,0,1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
 
 
 
