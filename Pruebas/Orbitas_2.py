@@ -24,7 +24,7 @@ x[0] = U_x[0]                 #Asigno el primer valor de la x del vector de posi
 y[0] = U_y[1]                 #Asigno el primer valor de la y del vector de posición al primer valor de la condición inicial de u en y
 
 print(x)
-for j in range(0,4):
+for j in range(0,9):
 
         U = array([U_x[j],U_y[j]])
         print(U)
