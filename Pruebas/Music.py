@@ -11,4 +11,16 @@ with io.open("chords.txt", "r") as f:
     content = f.read()
 
 # Imprime el contenido del archivo
-print(content)
+
+
+lineas=content.split("\n")
+
+
+
+
+palabras = content.split(" ")
+print(palabras)
+
+Palabras_pares = " ".join(palabras[::2])
+
+print(Palabras_pares)
