@@ -28,5 +28,5 @@ def test_Stability_region():
         plt.show()
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":      #Se ejecuta si este es el programa principal
     test_Stability_region()

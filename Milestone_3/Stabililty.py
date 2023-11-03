@@ -13,4 +13,4 @@ def System_matrix(F , U0 ; t):
         
         delta[:]=0
         delta[j]=eps
-        A[:,j]=(F(U0+delta,t) - F)
+        A[:,j]=(F(U0+delta,t) - F(U0-delta,t))
