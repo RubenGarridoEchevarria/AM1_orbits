@@ -1,6 +1,6 @@
 from numpy import array, zeros, linspace ,abs,traspose, float64
 import matplotlib.pyplot as plt
-from Temporal_schemes import Euler,RK4,Crank_Nicolson
+from Temporal_integrator import Euler,RK4,Crank_Nicolson
 
 
 def Stability_Region(Scheme,N,x0,xf,y0,yf):
