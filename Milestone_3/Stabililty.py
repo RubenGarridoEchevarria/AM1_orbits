@@ -20,7 +20,7 @@ def System_matrix (F , U0 , t):
 
 def Oscillator(U,t): 
 
-   return array( [ U[1], -U[0] ] ) 
+   return array( [ U[1], -U[0] ] )  
 
 def test_system_matrix(): 
 
@@ -28,3 +28,6 @@ def test_system_matrix():
     t = 0. 
     A = System_matrix(Oscillator,  U0, t)
     print("A=", A)
+
+
+test_system_matrix()
