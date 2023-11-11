@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from numpy import array
 from numpy import linspace 
 from Temporal_integrator import Euler, Crank_Nicolson, RK4
-from Kepler_Orbits import F_Kepler
+
 from Cauchy_Problem import Cauchy_problem
 
 

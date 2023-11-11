@@ -10,4 +10,4 @@ def F_Kepler(U,t):           #Define la función de la órbita de Kepler
    mr = (x**2 + y**2)**1.5
    
    
-   return array( [Vx , Vy , -x/mr, -y/mr] )  #Devuelve un vector formado con la órbit de Kepler
+   return array( [Vx , Vy , -x/mr, -y/mr] )  #Devuelve un vector formado con la órbita de Kepler

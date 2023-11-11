@@ -1,4 +1,8 @@
 
-def Oscillator(U,t): 
+from numpy import array
 
-   return array( [ U[1], -U[0] ] )  
+
+def Oscillator(U,t): 
+    
+    U = array ( [ U[1], -U[0] ] )
+    return U
