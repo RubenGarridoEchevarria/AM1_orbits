@@ -1,8 +1,9 @@
 
-from numpy import array,zeros, float64, real, imag
+from numpy import array,zeros, float64, real, imag, transpose, linspace
 import scipy.linalg
 import matplotlib.pyplot as plt
 from Region_estabilidad import test_Stability_region
+from Temporal_integrator import Euler,RK4,Crank_Nicolson
 
 
 def System_matrix (F , U0 , t):
@@ -40,25 +41,20 @@ def test_system_matrix():
     lambda_1 = complex(autovalores[0])
     lambda_2 = complex(autovalores[1])
     lamda = array( zeros(n))
-    plt.figure()
+ 
     for i in range(n):
         
         x1=real(autovalores[i])
         y1=imag(autovalores[i])
+        
         plt.plot(x1,y1, ".")
         
     
-    test_Stability_region()
-    plt.contour(x,y, transpose(rho), linspace(0,1,11))
-    plt.show()
+    rho, x, y =test_Stability_region()  
+    plt.contour(x,y, transpose(rho), linspace(0,1,11))  
     
-    
-    
-    
-   
-     
-        
-    
+    plt.grid
+    plt.show()       
         
     
 
