@@ -1,5 +1,6 @@
 from numpy import array, zeros, linspace ,abs,transpose, float64
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 from Temporal_integrator import Euler,RK4,Crank_Nicolson
 
 
@@ -13,8 +14,9 @@ def Stability_Region( Scheme , N , x0 , xf , y0 , yf):
         for j in range( N ):
 
 
-            w = complex(x[i],y[j])
-            r = Scheme( 1., 1. , 0., lambda u, t:w*u)   #Lambda crea una función como def pero sin nombre
+            w = complex(x[i],y[j])          # w es un número complejo con parte real x y parte compleja y        
+            
+            r = Scheme( 1., 1. , 0., lambda u,t : w*u)   # Primero llama a la función Scheme con esos atributos. Lueego lambda crea una función como def pero sin nombre que es la F que necesita el esquema numérico 
             rho[i,j]=abs(r)
 
     return rho, x, y  
@@ -27,10 +29,14 @@ def test_Stability_region():
 
         rho, x, y = Stability_Region (scheme,100,-4,2,-4,4)
        
-        plt.contour(x,y, transpose(rho), linspace(0,1,11))
+        plt.contour(x,y, transpose(rho), linspace(0,1,11))   # Al pintar las regiones de estabilidad rho representa las isolíneas de ganancia constante
         plt.axis("equal")
         plt.grid()
         plt.show()
+        
+        
+        
+        
 
 
 test_Stability_region()
