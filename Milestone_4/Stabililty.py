@@ -38,10 +38,7 @@ def test_system_matrix():
     n = len(autovalores)
     print(autovalores)
     
-    lambda_1 = complex(autovalores[0])
-    lambda_2 = complex(autovalores[1])
-    lamda = array( zeros(n))
- 
+  
     for i in range(n):
         
         x1=real(autovalores[i])
@@ -50,7 +47,7 @@ def test_system_matrix():
         plt.plot(x1,y1, ".")
         
     
-    rho, x, y =test_Stability_region()  
+    rho, x, y = test_Stability_region()  
     plt.contour(x,y, transpose(rho), linspace(0,1,11))  
     
     plt.grid

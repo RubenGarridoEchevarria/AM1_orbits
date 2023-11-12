@@ -30,7 +30,8 @@ def test_Stability_region():
         rho, x, y = Stability_Region (scheme,100,-4,2,-4,4)
        
         #plt.contour(x,y, transpose(rho), linspace(0,1,11))   # Al pintar las regiones de estabilidad rho representa las isolíneas de ganancia constante
-   
+    return rho, x, y
+    
 
 
         
