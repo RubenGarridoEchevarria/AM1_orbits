@@ -40,6 +40,7 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
 
     plt.axis('equal')
     plt.plot( U[:,0] , U[:,1], "." )            #Grafico los resultados
+    plt.grid()
     plt.show()
    #print(U)
 
