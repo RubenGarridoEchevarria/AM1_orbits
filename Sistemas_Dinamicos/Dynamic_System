@@ -1,6 +1,0 @@
-
-from numpy import array
-
-def Duffin_Oscilator(U,t):
-    
-    return array([U(1), U[0]-U[0]**3])
