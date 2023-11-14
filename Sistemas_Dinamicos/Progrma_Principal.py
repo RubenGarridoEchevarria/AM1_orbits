@@ -26,7 +26,7 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
 
 
 
-Milestone_function(tf=100,N=5000, U0=array([1,1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
+Milestone_function(tf=100,N=50000, U0=array([1,1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
 
 
 

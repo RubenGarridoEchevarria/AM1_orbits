@@ -17,6 +17,6 @@ def Duffin_Osciliator_2(U,t):
 
 def Rayleigh_Osocilator(U,t):
     
-    f0=0.6
+    f0=0.8
     
     return array([ U[1] , U[0] - U[0]**3 - U[1] + f0*cos(t) ])
