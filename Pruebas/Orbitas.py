@@ -12,7 +12,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 
-U1 = array([1, 1, 1])
+U1 = array([1, -1, 1])
 
 
 
