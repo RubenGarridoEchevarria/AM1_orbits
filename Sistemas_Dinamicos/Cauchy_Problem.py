@@ -1,6 +1,6 @@
 
 from numpy import zeros
-from Dynamic_System import Duffin_Oscilator, Duffin_Osciliator_2, Rayleigh_Osocilator
+from Dynamic_System import Duffin_Oscilator, Duffin_Osciliator_2, Rayleigh_Osocilator, Lorentz, Rossler
 
 
 
@@ -14,7 +14,7 @@ def Cauchy_problem(t, U0, Temporal_integrator):  #Defino el problema de Cauchy C
     for i in range(0,N):          #Crea el vector del problema de Cauchy para luego en cada paso del bucle resolverlo
 
     
-            U[i+1,:] = Temporal_integrator(U[i, :] , t[i+1] - t[i], t[i],  Rayleigh_Osocilator) #Crea el vector problema de Cauchy en el siguiente paso de tiempo y llama al integrador temporal para que lo resulva
+            U[i+1,:] = Temporal_integrator(U[i, :] , t[i+1] - t[i], t[i],  Rossler) #Crea el vector problema de Cauchy en el siguiente paso de tiempo y llama al integrador temporal para que lo resulva
 
 
     return U    #Devuelve la imagen de lo calculado por el integrador temporal
