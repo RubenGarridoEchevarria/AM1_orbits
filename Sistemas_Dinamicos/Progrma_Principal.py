@@ -40,7 +40,7 @@ plt.show()
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
-plt.plot(U[0],U[1],U[2])
+plt.plot(U[2000:50000,0],U[2000:50000,1],U[2000:50000,2])
 
 plt.show()
 
