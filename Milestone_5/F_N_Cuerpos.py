@@ -17,6 +17,7 @@ def F_N_Cuerpos(U,t, Nb, Nc):
     dvdt = reshape(dUs[:,:,1], (Nb,Nc)) 
     
     
+    
     for i in range(Nb):  #Bucle para cada cuerpo
         
         drdt[i,:] = v[i,:] # Relleno la derivada de la posición con de cada cuerpo para todas la coordenadas con la velocidad
