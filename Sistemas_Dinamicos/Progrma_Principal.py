@@ -30,7 +30,7 @@ U = Milestone_function(tf=100 ,N=50000, U0=array([-1,-1]))  #Llamo a la función
 print(U)
 
 plt.axis('equal')
-plt.plot( U[0:5000,0] , U[0:5000,1] )            #Grafico los resultados
+plt.plot( U[0:4000,0] , U[0:4000,1] )            #Grafico los resultados
 plt.grid()
 plt.show()
 
