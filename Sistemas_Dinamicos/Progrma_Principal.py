@@ -34,16 +34,15 @@ plt.plot( U[2000:50000,0] , U[2000:50000,1] )            #Grafico los resultados
 plt.grid()
 plt.show()
 
-#plt.plot( t[3000:N],U[3000:N,0])
-#plt.show()
 
 
-#fig = plt.figure()
-#ax = fig.add_subplot(111, projection='3d')
 
-#plt.plot(U[0],U[1],U[2])
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
 
-#plt.show()
+plt.plot(U[0],U[1],U[2])
+
+plt.show()
 
 
 
