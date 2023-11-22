@@ -14,22 +14,23 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
     
     t = linspace(0,tf,N)  
 
-    U = Cauchy_problem(t, U0, temporal_scheme)       #La solución la resulvo llamndo a problema de Cauchy metiendo en el primer argumento al F de Kepler
+    U = Cauchy_problem(t, temporal_scheme, U0)       #La solución la resulvo llamndo a problema de Cauchy metiendo en el primer argumento al F de Kepler
     return U
 
 
 
-tf = 100 
-N = 50000
-t = linspace(0,tf,N)            #Creo el vector de tiempos
-temporal_scheme = RK4
-U0 = array([1,1])
+      
+      
+        
+temporal_scheme = Euler
 
-U = Milestone_function(tf,N, U0)  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
 
+U = Milestone_function(tf=100 ,N=50000, U0=array([-1,-1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
+
+print(U)
 
 plt.axis('equal')
-plt.plot( U[0] , U[1] )            #Grafico los resultados
+plt.plot( U[0:5000,0] , U[0:5000,1] )            #Grafico los resultados
 plt.grid()
 plt.show()
 
