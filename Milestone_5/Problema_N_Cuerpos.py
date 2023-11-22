@@ -41,7 +41,7 @@ def Milestone_5():
     Nc = 3      # Componentes de las coordenadas
     t0 = 0
     tf = 4 
-    t = linspace(t0,tf, N+1)
+    t = linspace(t0,tf, N+1)  # Vector de tiempos
     
     U0 = Condiciones_iniciales(Nc, Nb)
     U = Cauchy_problem(t, U0, RK4, F)

@@ -16,7 +16,6 @@ def F_N_Cuerpos(U,t, Nb, Nc):
     drdt = reshape(dUs[:,:,0], (Nb,Nc))   # Lo mismo con las derivadas
     dvdt = reshape(dUs[:,:,1], (Nb,Nc)) 
     
-    dvdt[:,:] = 0 
     
     for i in range(Nb):  #Bucle para cada cuerpo
         
