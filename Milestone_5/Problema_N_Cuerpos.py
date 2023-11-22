@@ -14,6 +14,7 @@ def Condiciones_iniciales (Nc, Nb):
     r0 = reshape(U1[:,:,0],(Nb,Nc))  # Separo el tensor en posiciones y velocidades para cada cuerpo y sus cuerpos
     v0 = reshape(U1[:,:,1],(Nb,Nc))
     
+    # Cada cuerpo tiene 6 grados de libertad, 3 en posición y otros 3 en velocidad
     
     r0[0,:] = [1, 0, 0] # Posición inicial del cuerpo 1 para todas la coordenadas tienen componentes en los tres ejes
     v0[0,:] = [0, 0.4,0]
