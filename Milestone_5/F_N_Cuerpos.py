@@ -27,7 +27,7 @@ def F_N_Cuerpos(U,t, Nb, Nc):
             if j !=i:     # Si j no es ingual a i
                 
                 d = r[j,:] - r[i,:]  # Diferencia entre las posiciones de cada cuerpo dos a dos
-                dvdt[i,:] = dvdt[i,:] + d[:]/norm(d)**3  # La aceleración de cada cuerpo viene dado por la diferencia entre la posición de cada cuerpo partido del módulo de esa distancia
+                dvdt[i,:] = dvdt[i,:] + d[:]/norm(d)**3  # La aceleración de cada cuerpo viene dado por el sumantorio de la diferencia entre la posición de cada cuerpo partido del módulo de esa distancia
                 
                 
     return F

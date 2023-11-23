@@ -16,7 +16,7 @@ def Condiciones_iniciales (Nc, Nb):
     
     # Cada cuerpo tiene 6 grados de libertad, 3 en posición y otros 3 en velocidad
     
-    r0[0,:] = [1, 0, 0] # Posición inicial del cuerpo 1 para todas la coordenadas tienen componentes en los tres ejes
+    r0[0,:] = [1, 0, 1] # Posición inicial del cuerpo 1 para todas la coordenadas tienen componentes en los tres ejes
     v0[0,:] = [0, 0.4,0]
     
     r0[1,:] = [-1, 0, 0] # Posición inicial del cuerpo 2 para todas la coordenadas tienen componentes en los tres ejes
