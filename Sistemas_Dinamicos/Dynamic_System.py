@@ -2,7 +2,7 @@
 from numpy import array
 from math import cos
 
-def Duffin_Oscilator(U,t):
+def Vanderpol_Oscilator(U,t):
     
     return array([U[1], U[0]-U[0]**3])
 
