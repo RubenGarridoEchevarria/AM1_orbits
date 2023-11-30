@@ -25,7 +25,7 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
 temporal_scheme = Euler
 
 
-U = Milestone_function(tf=100 ,N=50000, U0=array([-1,-1,1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
+U = Milestone_function(tf=100 ,N=50000, U0=array([-1,-1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
 
 print(U)
 
@@ -37,12 +37,12 @@ plt.show()
 
 
 
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
+#fig = plt.figure()
+#ax = fig.add_subplot(111, projection='3d')
 
-plt.plot(U[2000:50000,0],U[2000:50000,1],U[2000:50000,2])
+#plt.plot(U[2000:50000,0],U[2000:50000,1],U[2000:50000,2])
 
-plt.show()
+#plt.show()
 
 
 
