@@ -28,24 +28,27 @@ def Condiciones_iniciales (Nc, Nb):
     r0[3,:] = [0, -1, 0] # Posición inicial del cuerpo 4 para todas la coordenadas tienen componentes en los tres ejes
     v0[3,:] = [0.4, 0,1]
     
+    r0[4,:] = [1, -1, 0] # Posición inicial del cuerpo 4 para todas la coordenadas tienen componentes en los tres ejes
+    v0[4,:] = [0.6, 0,1]
+    
     return U0
 
 
 def Milestone_5():
     
-    def F(U,t):
+    def F_a(U,t):
         
         return F_N_Cuerpos(U,t, Nb,Nc)
     
     N = 1000
-    Nb = 4      # Número de cuerpos
+    Nb = 5      # Número de cuerpos
     Nc = 3      # Componentes de las coordenadas
     t0 = 0
     tf = 4 
     t = linspace(t0,tf, N+1)  # Vector de tiempos
     
     U0 = Condiciones_iniciales(Nc, Nb)
-    U = Cauchy_problem(t, U0, RK4, F)
+    U = Cauchy_problem(t, U0, RK4,F_a )
     
     Us = reshape(U, (N+1, Nb, Nc, 2))
     r = reshape(Us[:,:,:,0], (N+1, Nb, Nc))
