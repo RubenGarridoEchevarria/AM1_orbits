@@ -2,6 +2,7 @@
 ## Código para el Runge Kuta embebido.
 
 from numpy import zeros, array, float64, dot
+from numpy.linalg import norm 
 
 def Embedded_RK( U, dt, t, F, q, Tolerance): 
   
@@ -22,6 +23,8 @@ def Embedded_RK( U, dt, t, F, q, Tolerance):
      c[:]  = [ 0, 1]  
 
     elif Ns==13: 
+        
+        
        c[:] = [ 0., 2./27, 1./9, 1./6, 5./12, 1./2, 5./6, 1./6, 2./3 , 1./3,   1., 0., 1.]
 
        a[0,:]  = [ 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0] 
