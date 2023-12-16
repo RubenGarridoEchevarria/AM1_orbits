@@ -3,7 +3,7 @@ from Cauchy_Problem import Cauchy_problem
 from numpy import array, zeros, linspace, reshape
 from F_N_Cuerpos import F_N_Cuerpos
 from Temporal_integrator import RK4
-from Milestone_6.RK_Embebido import Embedded_RK
+from Milestone_3.Temporal_integrator import Euler
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -49,7 +49,7 @@ def Milestone_5():
     t = linspace(t0,tf, N+1)  # Vector de tiempos
     
     U0 = Condiciones_iniciales(Nc, Nb)
-    U = Cauchy_problem(t, U0, Embedded_RK,F_a )
+    U = Cauchy_problem(t, U0, RK4,F_a )
     
     Us = reshape(U, (N+1, Nb, Nc, 2))
     r = reshape(Us[:,:,:,0], (N+1, Nb, Nc))
