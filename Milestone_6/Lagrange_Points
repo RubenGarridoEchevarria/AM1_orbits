@@ -1,2 +1,7 @@
 
-from AM1_ORBITS.Milstone_5.Problema_N_Cuerpos
+
+from Milestone_5.Problema_N_Cuerpos import Milestone_5
+
+
+Milestone_5()
+
