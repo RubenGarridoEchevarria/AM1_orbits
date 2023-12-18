@@ -1,37 +1,3 @@
-
-
-
-
-
-
-#=================================================================================
-#=================================================================================
-#                      MASTER UNIVERSITARIO EN SISTEMAS ESPACIALES
-#                                 IDR - ETSIAE - UPM
-#						     AMPLIACION DE MATEMATICAS 1
-#                                Javier Pueyo Serrano
-#                              Ruben Garrido Echevarría
-#=================================================================================
-#=================================================================================
-
-
-#=================================================================================
-#								FINAL MILESTONE
-#=================================================================================
-
-
-from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order
-#from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_Problem
-#from ODEs.Stability_Region import Region_Estabilidad
-#from ODEs.Temporal_Error import Error_Cauchy_Problem, Temporal_Convergence_Rate
-
-from Sistemas_Dinamicos.Dynamic_System import VanDerPol_Libre, VanDerPol_ForzadoArmonico, VanDerPol_ForzadoEstocastico, VanDerPol_Libre2, VanDerPol_Libre3
-
-import matplotlib.pyplot as plt
-from numpy import array, zeros, linspace, abs, transpose, float64, histogram2d, meshgrid, ones_like, max, min, arange
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.animation as animation
-
 ## Graficos con tipografia LaTeX
 #plt.rcParams.update({
 #    "text.usetex": True,
@@ -57,18 +23,20 @@ import matplotlib.animation as animation
 #print( "" )
 
 
-#print( "   INTERVALO DE TIEMPO" )
-#print( "" )
-#print( "   Seleccione el tiempo de integracion que desea utilizar para la resolucion." )
+from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order
+#from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_Problem
+#from ODEs.Stability_Region import Region_Estabilidad
+#from ODEs.Temporal_Error import Error_Cauchy_Problem, Temporal_Convergence_Rate
 
-#float(input( "        tf = " ))
-#input()
-#print( "   Seleccione el numero de pasos que desea utilizar para la resolucion." )
+from Sistemas_Dinamicos.Dynamic_System import VanDerPol_Libre, VanDerPol_ForzadoArmonico, VanDerPol_ForzadoEstocastico, VanDerPol_Libre2, VanDerPol_Libre3
 
-#int(input( "        N = " ))
-#print( "" )
-#input()
-#t = linspace( start = 0, stop = tf, num = N)
+import matplotlib.pyplot as plt
+from numpy import array, zeros, linspace, abs, transpose, float64, histogram2d, meshgrid, ones_like, max, min, arange
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.animation as animation
+
+
+
 
 t0 = 0
 h = 0.01
@@ -103,14 +71,7 @@ print(U)
 plt.plot( U[:,0] , U[:,1] )   
 plt.show()
 
-#U_01 = array([1,0,0])
-#U1 =  Cauchy_Problem( VanDerPol_ForzadoEstocastico, t, U_01, RungeKutta_4 )
 
-#U_02 = array([0.1,0])
-#U2 =  Cauchy_Problem( VanDerPol_Libre2, t, U_02, RungeKutta_4 )
-
-#U_03 = array([0.1,0])
-#U3 =  Cauchy_Problem( VanDerPol_Libre3, t, U_03, RungeKutta_4 )
 
 
 
