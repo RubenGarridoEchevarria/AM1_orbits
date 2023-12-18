@@ -1,8 +1,8 @@
 
 from numpy import zeros
-from Dynamic_System import Vanderpol_Oscilator, Duffin_Osciliator_2, Rayleigh_Osocilator, pruebas, pruebas_2, pruebas_3
-from Dynamic_System_3D import Lorentz, Rossler
-from Temporal_integrator import RK4
+from Sistemas_Dinamicos.Dynamic_System import Vanderpol_Oscilator, Duffin_Osciliator_2, Rayleigh_Osocilator, pruebas, pruebas_2, pruebas_3
+#from Dynamic_System_3D import Lorentz, Rossler
+from Sistemas_Dinamicos.Temporal_integrator import RK4
 
 
 
