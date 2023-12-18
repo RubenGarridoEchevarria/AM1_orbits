@@ -3,7 +3,7 @@ from Cauchy_Problem import Cauchy_problem
 from numpy import array, zeros, linspace, reshape
 from F_N_Cuerpos import F_N_Cuerpos
 from Temporal_integrator import RK4
-
+from Milestone_3.Temporal_integrator import Euler
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
