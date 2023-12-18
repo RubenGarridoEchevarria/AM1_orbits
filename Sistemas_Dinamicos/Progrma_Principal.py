@@ -25,12 +25,15 @@ def Milestone_function(tf, N, U0):     #Defino la función que resolverá el pro
 temporal_scheme = RK4
 
 
-U = Milestone_function(tf=100 ,N=50000, U0=array([-1,-1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
-
+U = Milestone_function(tf=10 ,N=10000, U0=array([1.5,1]))  #Llamo a la función que va a resolver el problema de Cauchy introduciendo los parámetos
+#tf=1 
+#N=100
+#t = linspace(0,tf,N)  
 print(U)
 
+
 plt.axis('equal')
-plt.plot( U[40000:50000,0] , U[40000:50000,1] )            #Grafico los resultados
+plt.plot( U[:,0] , U[:,1] )            #Grafico los resultados
 plt.grid()
 plt.show()
 

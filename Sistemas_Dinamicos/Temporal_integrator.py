@@ -32,3 +32,21 @@ def RK4(U, dt, t, F):
     K4=F(U + dt * K3, t + dt)
 
     return U + dt * (K1 + 2*K2 + 2*K3 +K4)/6
+
+
+def Adams_Bashforth_4th_order(h, t_values, U,f):
+    # Implementación del esquema Adams-Bashforth de 4to orden
+    n = len(t_values)
+    
+    for i in range(3, n - 1):
+        U[i+1,:] = U[i,:] + h / 24 * (55 * f(t_values[i], U[i,:])
+                                            - 59 * f(t_values[i - 1], U[i - 1,:])
+                                            + 37 * f(t_values[i - 2], U[i - 2,:])
+                                            - 9 * f(t_values[i - 3], U[i - 3,:]))
+        
+        
+        
+        t_values[i + 1] = t_values[i] + h
+        
+
+    return t_values, U
