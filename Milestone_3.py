@@ -1,9 +1,9 @@
 
-from Cauchy_Problem import Cauchy_problem
+from Funciones_Auxiliares.Cauchy_Problem_Con_F import Cauchy_problem
 from numpy import array, zeros, log10, ones, vstack, linspace
 from numpy.linalg import norm, lstsq
-from Kepler_Orbits import F_Kepler
-from Temporal_integrator import RK4, Euler, Crank_Nicolson
+from Funciones_Auxiliares.Kepler_Orbits import F_Kepler
+from Funciones_Auxiliares.Temporal_integrator import RK4, Euler, Crank_Nicolson
 import matplotlib.pyplot as plt
 
 

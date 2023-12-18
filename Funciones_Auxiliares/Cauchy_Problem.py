@@ -1,6 +1,7 @@
 
 from numpy import zeros
-from Kepler_Orbits import F_Kepler
+from Funciones_Auxiliares.Kepler_Orbits import F_Kepler
+
 
 
 

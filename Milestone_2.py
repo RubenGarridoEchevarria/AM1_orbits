@@ -2,9 +2,8 @@
 import matplotlib.pyplot as plt
 from numpy import array
 from numpy import linspace 
-from Temporal_integrator import Euler, Crank_Nicolson, RK4
-
-from Cauchy_Problem import Cauchy_problem
+from Funciones_Auxiliares.Temporal_integrator import Euler, Crank_Nicolson, RK4
+from Funciones_Auxiliares.Cauchy_Problem import Cauchy_problem
 
 
 

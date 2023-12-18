@@ -1,7 +1,7 @@
 from numpy import array, zeros, linspace ,abs,transpose, float64
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from Temporal_integrator import Euler,RK4,Crank_Nicolson
+from Funciones_Auxiliares.Temporal_integrator import Euler,RK4,Crank_Nicolson
 
 
 def Stability_Region( Scheme , N , x0 , xf , y0 , yf):
@@ -23,13 +23,14 @@ def Stability_Region( Scheme , N , x0 , xf , y0 , yf):
 
 def test_Stability_region():
 
-    schemes = [RK4]
+    schemes = [Euler]
 
     for scheme in schemes:
 
         rho, x, y = Stability_Region (scheme,100,-4,2,-4,4)
        
-        #plt.contour(x,y, transpose(rho), linspace(0,1,11))   # Al pintar las regiones de estabilidad rho representa las isolíneas de ganancia constante
+        plt.contour(x,y, transpose(rho), linspace(0,1,11))   # Al pintar las regiones de estabilidad rho representa las isolíneas de ganancia constante
+        plt.show()
     return rho, x, y
     
 

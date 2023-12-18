@@ -1,11 +1,18 @@
 
-from Cauchy_Problem import Cauchy_problem
+from Funciones_Auxiliares.Cauchy_Problem_Con_F import Cauchy_problem
 from numpy import array, zeros, linspace, reshape
-from F_N_Cuerpos import F_N_Cuerpos
-from Temporal_integrator import RK4
-from Milestone_3.Temporal_integrator import Euler
+from Funciones_Auxiliares.F_N_Cuerpos import F_N_Cuerpos
+from Funciones_Auxiliares.Temporal_integrator import RK4
+
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+
+import os
+
+# Obtén el directorio actual
+directorio_actual = os.getcwd()
+
+print("Directorio actual:", directorio_actual)
 
 
 def Condiciones_iniciales (Nc, Nb):
