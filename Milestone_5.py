@@ -7,12 +7,6 @@ from Funciones_Auxiliares.Temporal_integrator import RK4
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-import os
-
-# Obtén el directorio actual
-directorio_actual = os.getcwd()
-
-print("Directorio actual:", directorio_actual)
 
 
 def Condiciones_iniciales (Nc, Nb):
