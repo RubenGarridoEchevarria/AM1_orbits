@@ -84,7 +84,7 @@ except ValueError:
           
           
 #create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
-print(U)    
+   
 
 
 

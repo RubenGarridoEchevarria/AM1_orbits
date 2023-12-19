@@ -61,6 +61,6 @@ def Cauchy_problem_Adams(t, U0, Temporal_integrator,Diferntial_operator,h):
                 
                 U[i+1,:] = Temporal_integrator( U[i,:], U[i-1, :], U[i-2, :], U[i-3,:] ,t[i+1] - t[i], t[i],  Diferntial_operator)
         
-        print(U)
+    
         return U
         
