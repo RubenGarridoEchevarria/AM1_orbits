@@ -89,6 +89,8 @@ def Adams_Bashforth_4th_order_2(U, U1, U2 , U3, dt, t, F):
     
     
     
+        
+        
     
     # for i in range(3, n - 1):
     #     U[i+1,:] = U[i,:] + h / 24 * (55 * f(U[ i,:], t_values[i])
@@ -101,4 +103,4 @@ def Adams_Bashforth_4th_order_2(U, U1, U2 , U3, dt, t, F):
     #     t_values[i + 1] = t_values[i] + h
         
 
-    return U + dt /24 * ( 55 * F(U, t) - 59 * F(U1,t) + 37 * F(U2,t) -9 * F(U3,t))
+    return U + (dt /24) * ( 55 * F(U, t) - 59 * F(U1,t) + 37 * F(U2,t) -9 * F(U3,t))

@@ -38,17 +38,17 @@ def Cauchy_problem_Adams(t, U0, Temporal_integrator,Diferntial_operator,h):
   
         U = zeros((len(t),3))
         # Condiciones iniciales
-        t[0] =  0
+        #t[0] =  0
         
 
-        U1 = U0 + h*Diferntial_operator(U0,t[0])
-        t[1] = t0 + h
+        U1  = U0 + h*Diferntial_operator(U0,t[0])
+        #t[1] = t0 + h
       
-        U2= U1 + h*Diferntial_operator(U1,t[1])
+        U2 = U1 + h*Diferntial_operator(U1,t[1])
         
-        t[2] = t[1] + h
+        #t[2] = t[1] + h
         
-        U3= U2 + h*Diferntial_operator(U2,t[2])
+        U3 = U2 + h*Diferntial_operator(U2,t[2])
 
 
         U[0,:] = U0
