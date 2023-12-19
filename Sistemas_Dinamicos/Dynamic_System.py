@@ -87,8 +87,8 @@ def VanDerPol_ForzadoArmonico( U, t ):
 	return array( [y , -0.01 * (x**2-1) * y - 1 * x + 2*cos(t)  ] )
 
 
-def VanDerPol_ForzadoEstocastico(t, U ):
-    mu = 0.1
+def VanDerPol_ForzadoEstocastico(U, t ):
+    mu = 1
     w0 = 1
     tau = 0.1
     D = 1000000

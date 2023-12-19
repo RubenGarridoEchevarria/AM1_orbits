@@ -23,8 +23,10 @@
 #print( "" )
 
 
-from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order
-#from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_Problem
+from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson
+from Funciones_Auxiliares.RK_Embebido import Embedded_RK
+from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem
+from Sistemas_Dinamicos.Cauchy_Problem_Con_F import Cauchy_problem_2
 #from ODEs.Stability_Region import Region_Estabilidad
 #from ODEs.Temporal_Error import Error_Cauchy_Problem, Temporal_Convergence_Rate
 
@@ -38,38 +40,57 @@ import matplotlib.animation as animation
 
 
 
+
+
+# #Inicialización de las listas de valores
+
+
 t0 = 0
 h = 0.01
-t_final = 1000
+
+
+t_final = 100
 N =  t_final/h
-print(N)
-
-# Inicialización de las listas de valores
 t_values = arange(t0, t_final + h, h)
-U = zeros((len(t_values), 3))
-
-# Condiciones iniciales
-t_values[0] = t0
 U0 = array([0,1,0])
 
-U1 = U0 + h*VanDerPol_ForzadoEstocastico(t_values[0],U0)
-t_values[1] = t0 + h
-U2= U1 + h*VanDerPol_ForzadoEstocastico(t_values[1],U1)
-t_values[2] = t_values[1] + h
-U3= U2 + h*VanDerPol_ForzadoEstocastico(t_values[2],U2)
+print("Selecione el integrador temporal: 1 = Euler, 2 = RK4, 3 = RK Embebido, 4 = Admas_Bashforth 4 Orden, 5 = Crank_Nicolson")
+Selector= input()  #Eligo que integrador temporal que va a usar para resolver el programa
+    
 
+try:
+    Selector=float(Selector)
 
-U[0,:] = U0
-U[1,:] = U1
-U[2,:] = U2
-U[3,:] = U3
+    if Selector == 1:
+            
+        U = Cauchy_problem(t_values, U0, Euler, VanDerPol_ForzadoEstocastico )
+                  
+    
+    if Selector == 2:
 
+        U = Cauchy_problem(t_values, U0, RK4, VanDerPol_ForzadoEstocastico )                        
 
-Adams_Bashforth_4th_order(h, t_values, U, VanDerPol_ForzadoEstocastico)
-print(U)
+    if Selector == 3:
+        q = 2
+        Tolerance = 1e-6       
+        U = Cauchy_problem_2(t_values, U0, Embedded_RK, VanDerPol_ForzadoEstocastico, q, Tolerance )
+        
+    if Selector == 4:
+   
+        U , t_values = Adams_Bashforth_4th_order(h, t_values,t0, U0, VanDerPol_ForzadoEstocastico)        
+        
+    if Selector == 5:    
+        
+        U = Cauchy_problem(t_values, U0, Crank_Nicolson, VanDerPol_ForzadoEstocastico )
+        
+         
+         
+except ValueError:
+          print("El valor introducido no es válido")
+    
 
 plt.plot( U[:,0] , U[:,1] )   
-plt.show()
+#plt.show()
 
 
 
@@ -228,18 +249,6 @@ plt.show()
 ##plt.show()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ##plt.show()
 
 ## with warnings.catch_warnings():
@@ -262,20 +271,19 @@ plt.show()
 ## plt.show()
 
 
-
-#hist, xedges, yedges = histogram2d(U[:,0], U[:,1], bins=25)
-#x_centers = (xedges[:-1] + xedges[1:]) / 2
-#y_centers = (yedges[:-1] + yedges[1:]) / 2
-#fig = plt.figure(figsize=(10, 8))
-#ax = fig.add_subplot(111, projection='3d')
-#x_mesh, y_mesh = meshgrid(x_centers, y_centers)
-#ax.bar3d(x_mesh.flatten(), y_mesh.flatten(), 0, 1, 1, hist.flatten(), shade=True)
-#ax.set_xlabel('X')
-#ax.set_ylabel('Y')
-#ax.set_zlabel('Frecuencia')
-#plt.title('Histograma 3D')
-#plt.axis('equal')
-#plt.show()
+# hist, xedges, yedges = histogram2d(U[:,0], U[:,1], bins=25)
+# x_centers = (xedges[:-1] + xedges[1:]) / 2
+# y_centers = (yedges[:-1] + yedges[1:]) / 2
+# fig = plt.figure(figsize=(10, 8))
+# ax = fig.add_subplot(111, projection='3d')
+# x_mesh, y_mesh = meshgrid(x_centers, y_centers)
+# ax.bar3d(x_mesh.flatten(), y_mesh.flatten(), 0, 1, 1, hist.flatten(), shade=True)
+# ax.set_xlabel('X')
+# ax.set_ylabel('Y')
+# ax.set_zlabel('Frecuencia')
+# plt.title('Histograma 3D')
+# plt.axis('equal')
+# plt.show()
 
 
 

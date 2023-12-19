@@ -3,6 +3,7 @@
 
 
 from scipy.optimize import newton
+from numpy import zeros, arange, array
 
 
 def Euler(U, dt, t, F):         #Resuelve el problema de Cauchy con el método de Euler
@@ -34,9 +35,32 @@ def RK4(U, dt, t, F):
     return U + dt * (K1 + 2*K2 + 2*K3 +K4)/6
 
 
-def Adams_Bashforth_4th_order(h, t_values, U,f):
+def Adams_Bashforth_4th_order(h, t_values, t0, U0, f):
+    
+    
+    
+
     
     n = len(t_values)
+    
+    U = zeros((len(t_values), 3))
+    # Condiciones iniciales
+    t_values[0] =  t0
+
+    U1 = U0 + h*f(t_values[0],U0)
+    t_values[1] = t0 + h
+    U2= U1 + h*f(t_values[1],U1)
+    t_values[2] = t_values[1] + h
+    U3= U2 + h*f(t_values[2],U2)
+
+
+    U[0,:] = U0
+    U[1,:] = U1
+    U[2,:] = U2
+    U[3,:] = U3
+
+    
+    
     
     for i in range(3, n - 1):
         U[i+1,:] = U[i,:] + h / 24 * (55 * f(t_values[i], U[i,:])
