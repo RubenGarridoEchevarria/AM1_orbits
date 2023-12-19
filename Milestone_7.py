@@ -24,9 +24,9 @@
 #print( "" )
 
 
-from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson
+from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson, Adams_Bashforth_4th_order_2
 from Funciones_Auxiliares.RK_Embebido import Embedded_RK
-from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem
+from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem, Cauchy_problem_Adams
 from Sistemas_Dinamicos.Animacion import create_animation
 from Sistemas_Dinamicos.Dynamic_System import VanDerPol_Libre, VanDerPol_ForzadoArmonico, VanDerPol_ForzadoEstocastico, VanDerPol_Libre2, VanDerPol_Libre3
 
@@ -72,16 +72,21 @@ try:
    
         U = Cauchy_problem(t_values, U0, Crank_Nicolson, VanDerPol_ForzadoEstocastico )
         
-
+    if Selector == 5:
+   
+        U = Cauchy_problem_Adams(t_values, U0, Adams_Bashforth_4th_order_2, VanDerPol_ForzadoEstocastico,h )
         
+        
+        
+            
 except ValueError:
           print("El valor introducido no es válido")   
           
           
-create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
-         
+#create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
+print(U)    
 
-    
+
 
 
 ##plt.figure()
@@ -319,5 +324,5 @@ ax.set_ylabel('Eje Y')
 ax.set_zlabel('Frecuencia')
 ax.set_title('Histograma 3D')
 
-plt.show()
+#plt.show()
 
