@@ -1,6 +1,9 @@
 
 from numpy import array
 from math import cos
+from numpy import sqrt, log, cos, pi, zeros
+from random import random
+
 
 def Vanderpol_Oscilator(U,t):
     
@@ -93,4 +96,18 @@ def VanDerPol_ForzadoEstocastico(U, t ):
     tau = 0.1
     D = 1000000
     h = 0.01
-    return array([U[1], -mu*(U[0]**2 - 1)*U[1] - (w0)*U[0] - U[2], -U[2]/tau + sqrt(D)*sqrt(h)*randn()])
+    def Box_Muller_random_generator(a, b):
+        # Genera un número aleatorio con distribución normal estándar utilizando el método de Box-Muller
+        # Input: Dimensiones del output (hasta 2 dimensiones)
+        # Output: Numero aleatorio con distribucion normal estandar
+        Z1 = zeros((a, b))
+        for ii in range(0, a):
+            for jj in range(0, b):
+                U1 = 1.0 - random()
+                U2 = 1.0 - random()
+                Z1[ii, jj] = sqrt(-2*log(U1)) * cos(2*pi*U2)
+                
+        return Z1
+    Z1 = Box_Muller_random_generator(1,1)
+ 
+    return array([U[1], -mu*(U[0]**2 - 1)*U[1] - (w0)*U[0] - U[2], -U[2]/tau + sqrt(D)*sqrt(h)*Z1[0,0]])
