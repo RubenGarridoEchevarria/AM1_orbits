@@ -27,7 +27,7 @@
 from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson
 from Funciones_Auxiliares.RK_Embebido import Embedded_RK
 from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem
-
+from Sistemas_Dinamicos.Animacion import create_animation
 from Sistemas_Dinamicos.Dynamic_System import VanDerPol_Libre, VanDerPol_ForzadoArmonico, VanDerPol_ForzadoEstocastico, VanDerPol_Libre2, VanDerPol_Libre3
 
 import matplotlib.pyplot as plt
@@ -74,11 +74,13 @@ try:
         
 
         
-    
-         
-         
 except ValueError:
-          print("El valor introducido no es válido")
+          print("El valor introducido no es válido")   
+          
+          
+create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
+         
+
     
 
 
