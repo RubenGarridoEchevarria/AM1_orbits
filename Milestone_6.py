@@ -57,7 +57,7 @@ def Problema_Tres_Cuerpos_Restirngidos():
     U_0 = hstack((r_0, v_0))
 
     t_0 = 0  
-    t_f = 40  
+    t_f = 100  
     t_points = linspace(t_0, t_f, 1000)
     
     
@@ -143,6 +143,6 @@ def Lagrange_Points():
     ax.plot(1 - pi_2, 0, 'go', label="$m_2$")
     ax.legend()
     ax.set_aspect("equal")
-    plt.show()
+    #plt.show()
         
 Lagrange_Points()    
