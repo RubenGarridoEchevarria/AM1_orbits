@@ -12,6 +12,7 @@
 #print( "   ==                         IDR - ETSIAE - UPM                           ==" )
 #print( "   ==                    AMPLIACION DE MATEMATICAS 1                       ==" )
 #print( "   ==                        Javier Pueyo Serrano                          ==" )
+#print( "   ==                      Ruben Garrido Echevarria                        ==" )
 #print( "   ==========================================================================" )
 #print( "   ==========================================================================" )
 #print( "" )
