@@ -22,19 +22,42 @@ def Problema_Tres_Cuerpos_Restirngidos():
     m_2 = 7.348E22 
     pi_2 = m_2/(m_1 + m_2)              # Relación de la segunda masa entre la masa total
 
-    x_0 = 1 - pi_2                      
-    y_0 = .0455
+ 
+   # Condiciones iniciales para el L1
+    
+    x_0 = 0.8369154703225321                  
+    y_0 = 0
     z_0 = 0
-    vx_0 = -0.5
-    vy_0 = 0.5
+    vx_0 = 0
+    vy_0 = 0
     vz_0 = 0
+    
+    # Condiciones iniciales para el L2
+    
+    # x_0 = 1.1556818961296604                
+    # y_0 = 0
+    # z_0 = 0
+    # vx_0 = 0
+    # vy_0 = 0
+    # vz_0 = 0
+    
+    # Condiciones iniciales para el L3
+    
+    # x_0 = -1.0050626166357435             
+    # y_0 = 0
+    # z_0 = 0
+    # vx_0 = 0
+    # vy_0 = 0
+    # vz_0 = 0
+    
+    
 
     r_0 = array((x_0, y_0, z_0))
     v_0 = array((vx_0, vy_0, vz_0))
     U_0 = hstack((r_0, v_0))
 
     t_0 = 0  
-    t_f = 20  
+    t_f = 40  
     t_points = linspace(t_0, t_f, 1000)
     
     
@@ -103,7 +126,7 @@ def Lagrange_Points():
     ax.set_xlabel("$x^*$")
     ax.set_ylabel("$y^*$")
 
-    
+  
     ax.axhline(0, color='k')
     ax.plot(hstack((x_2, x_2[::-1])), hstack((y_2, -y_2[::-1])))
     ax.plot(hstack((x_1, x_1[::-1])), hstack((y_1, -y_1[::-1])))
@@ -118,7 +141,7 @@ def Lagrange_Points():
     ax.plot(0, 0, 'k', marker=center_of_mass, markersize=10)
     ax.plot(-pi_2, 0, 'bo', label="$m_1$")
     ax.plot(1 - pi_2, 0, 'go', label="$m_2$")
-    
+    ax.legend()
     ax.set_aspect("equal")
     plt.show()
         
