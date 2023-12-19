@@ -1,6 +1,6 @@
 from numpy import sqrt, array, hstack, cos, sin, abs, concatenate, linspace, pi, zeros_like, sum, square
 
-def F_3_Cuerpos(t,U):
+def F_3_Cuerpos(U,t):
   
         x, y, z = U[:3]
         xdot, ydot, zdot = U[3:]
