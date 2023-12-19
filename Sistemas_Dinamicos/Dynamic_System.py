@@ -91,7 +91,7 @@ def VanDerPol_ForzadoArmonico( U, t ):
 
 
 def VanDerPol_ForzadoEstocastico(U, t ):
-    mu = 1
+    mu = 0.1
     w0 = 1
     tau = 0.1
     D = 1000000

@@ -79,12 +79,6 @@ except ValueError:
           print("El valor introducido no es válido")
     
 
-plt.plot( U[:,0] , U[:,1] )   
-#plt.show()
-
-
-
-
 
 ##plt.figure()
 ##plt.grid( axis = 'both' , color = 'gainsboro' , linestyle = 'none' )
