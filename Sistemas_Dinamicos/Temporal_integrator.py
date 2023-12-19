@@ -23,7 +23,7 @@ def Crank_Nicolson(U, dt, t, F):  #Resuelve el problema de Cauchy con el método
 
     a = U + dt/2 * F(U, t)
     
-    return newton(residual, U, maxiter=400)    #Resuleve el sistema de ecuaciones no lineal por el método de Newton
+    return newton(residual, U, maxiter=600)    #Resuleve el sistema de ecuaciones no lineal por el método de Newton
 
 
 

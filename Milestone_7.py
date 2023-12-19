@@ -78,7 +78,7 @@ try:
         U = Cauchy_problem_Adams(t_values, U0, Adams_Bashforth_4th_order_2, VanDerPol_ForzadoEstocastico,h )
         
         
-        
+
             
 except ValueError:
           print("El valor introducido no es válido")   
@@ -86,11 +86,12 @@ except ValueError:
           
 #create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
    
+print(U)
 
+plt.plot(U[:,0], U[:,1])
+plt.show()
 
-
-
-##plt.figure()
+#plt.figure()
 ##plt.grid( axis = 'both' , color = 'gainsboro' , linestyle = 'none' )
 ##plt.plot( t[:] , U1[:,0], color = 'r')
 ##plt.ylabel("$x$", fontdict = {'fontsize':14, 'fontweight':'normal', 'color':'k'})
@@ -289,7 +290,7 @@ data_y = U[:,1]
 
 # Crear el histograma bidimensional
 plt.figure(figsize=(8, 6))
-plt.hist2d(data_x, data_y, bins=200, cmap='viridis')
+plt.hist2d(data_x, data_y, bins=400, cmap='viridis')
 
 # Agregar etiquetas y titulo
 plt.colorbar(label='Frecuencia')

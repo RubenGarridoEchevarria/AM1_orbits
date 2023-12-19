@@ -3,7 +3,14 @@ from numpy import zeros, arange
 
 
 
+def RK4(U, dt, t, F):
 
+    K1=F(U,t)
+    K2=F(U + dt * K1/2, t + dt/2)
+    K3=F(U + dt * K2/2, t + dt/2)
+    K4=F(U + dt * K3, t + dt)
+
+    return U + dt * (K1 + 2*K2 + 2*K3 +K4)/6
 
 def Cauchy_problem(t, U0, Temporal_integrator, Diferntial_operator):  #Defino el problema de Cauchy Con la F, la condición inicial y se introducé el integrador temporal que se usa
     
@@ -22,21 +29,11 @@ def Cauchy_problem(t, U0, Temporal_integrator, Diferntial_operator):  #Defino el
     
 def Cauchy_problem_Adams(t, U0, Temporal_integrator,Diferntial_operator,h):
         
-        # t0 = t[0] 
+        t0 = t[0] 
         
-        # t_values_0 = arange(t0,4 * h, h)
-        # U1 = Cauchy_problem (t_values_0, U, RK4, Diferntial_operator)
-    
-        # U[0,:] = U1[0,:]
-        # U[1,:] = U1[1,:]
-        # U[2,:] = U1[2,:]
-        # U[3,:] = U1[3,:]
-        
-        t0=0
-        
-
-  
         U = zeros((len(t),3))
+    
+  
         U1  = U0 + h*Diferntial_operator(U0,t[0])
 
       
