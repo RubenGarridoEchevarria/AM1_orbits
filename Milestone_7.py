@@ -65,6 +65,7 @@ try:
         U = Cauchy_problem(t_values, U0, RK4, VanDerPol_ForzadoEstocastico )                        
 
     if Selector == 3:
+        
        U , t_values = Adams_Bashforth_4th_order(h, t_values,t0, U0, VanDerPol_ForzadoEstocastico)        
         
     if Selector == 4:
