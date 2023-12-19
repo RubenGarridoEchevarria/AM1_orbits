@@ -78,8 +78,8 @@ def Lagrange_Points():
     center_of_mass = mpath.Path(verts, codes)
 
     
-    m_1 = 5.974E24  # kg
-    m_2 = 7.348E22 # kg
+    m_1 = 5.974E24 
+    m_2 = 7.348E22 
     pi_2 = m_2/(m_1 + m_2)
 
 
