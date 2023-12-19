@@ -26,9 +26,6 @@
 from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson
 from Funciones_Auxiliares.RK_Embebido import Embedded_RK
 from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem
-from Sistemas_Dinamicos.Cauchy_Problem_Con_F import Cauchy_problem_2
-#from ODEs.Stability_Region import Region_Estabilidad
-#from ODEs.Temporal_Error import Error_Cauchy_Problem, Temporal_Convergence_Rate
 
 from Sistemas_Dinamicos.Dynamic_System import VanDerPol_Libre, VanDerPol_ForzadoArmonico, VanDerPol_ForzadoEstocastico, VanDerPol_Libre2, VanDerPol_Libre3
 
@@ -36,10 +33,6 @@ import matplotlib.pyplot as plt
 from numpy import array, zeros, linspace, abs, transpose, float64, histogram2d, meshgrid, ones_like, max, min, arange
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.animation as animation
-
-
-
-
 
 
 # #Inicialización de las listas de valores
@@ -54,7 +47,7 @@ N =  t_final/h
 t_values = arange(t0, t_final + h, h)
 U0 = array([0,1,0])
 
-print("Selecione el integrador temporal: 1 = Euler, 2 = RK4, 3 = RK Embebido, 4 = Admas_Bashforth 4 Orden, 5 = Crank_Nicolson")
+print("Selecione el integrador temporal: 1 = Euler, 2 = RK4, 3 = Admas_Bashforth 4 Orden, 4 = Crank_Nicolson")
 Selector= input()  #Eligo que integrador temporal que va a usar para resolver el programa
     
 
@@ -71,18 +64,15 @@ try:
         U = Cauchy_problem(t_values, U0, RK4, VanDerPol_ForzadoEstocastico )                        
 
     if Selector == 3:
-        q = 2
-        Tolerance = 1e-6       
-        U = Cauchy_problem_2(t_values, U0, Embedded_RK, VanDerPol_ForzadoEstocastico, q, Tolerance )
+       U , t_values = Adams_Bashforth_4th_order(h, t_values,t0, U0, VanDerPol_ForzadoEstocastico)        
         
     if Selector == 4:
    
-        U , t_values = Adams_Bashforth_4th_order(h, t_values,t0, U0, VanDerPol_ForzadoEstocastico)        
-        
-    if Selector == 5:    
-        
         U = Cauchy_problem(t_values, U0, Crank_Nicolson, VanDerPol_ForzadoEstocastico )
         
+
+        
+    
          
          
 except ValueError:
