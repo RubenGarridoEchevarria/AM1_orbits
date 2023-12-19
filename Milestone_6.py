@@ -103,13 +103,13 @@ def Lagrange_Points():
     ax.set_xlabel("$x^*$")
     ax.set_ylabel("$y^*$")
 
-    # Plot the orbits
+    
     ax.axhline(0, color='k')
     ax.plot(hstack((x_2, x_2[::-1])), hstack((y_2, -y_2[::-1])))
     ax.plot(hstack((x_1, x_1[::-1])), hstack((y_1, -y_1[::-1])))
     ax.plot([-pi_2, 0.5 - pi_2, 1 - pi_2, 0.5 - pi_2, -pi_2], [0, sqrt(3)/2, 0, -sqrt(3)/2, 0], 'k', ls="--", lw=1)
 
-    # Plot the Lagrange Points and masses
+    
     ax.plot(L_1, 0, 'rv', label="$L_1$")
     ax.plot(L_2, 0, 'r^', label="$L_2$")
     ax.plot(L_3, 0, 'rp', label="$L_3$")
@@ -118,7 +118,7 @@ def Lagrange_Points():
     ax.plot(0, 0, 'k', marker=center_of_mass, markersize=10)
     ax.plot(-pi_2, 0, 'bo', label="$m_1$")
     ax.plot(1 - pi_2, 0, 'go', label="$m_2$")
-    ax.legend()
+    
     ax.set_aspect("equal")
     plt.show()
         
