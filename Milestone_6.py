@@ -26,7 +26,7 @@ def Problema_Tres_Cuerpos_Restirngidos():
  ## Seleccionar la condición inicila de los diferentes puntos de Lagrange calculados con la última función
  # Todas las cordenadas están adimensionalizadas respecto a la distancia entre la tierra y la luna
  
-   # Condiciones iniciales para el L1
+   # Condiciones iniciales para el L1 ----->  Punto de Lagrange inestable: Si las condiciones iniciales varian ligeramente del punto de equilibrio, la solución divergerá de éste con el tiempo
     
     # x_0 =  0.8369154703220377
     # y_0 = 0
@@ -35,26 +35,26 @@ def Problema_Tres_Cuerpos_Restirngidos():
     # vy_0 = 0
     # vz_0 = 0
     
-    # Condiciones iniciales para el L2
+    # Condiciones iniciales para el L2 ----->  Punto de Lagrange inestable: Si las condiciones iniciales varian ligeramente del punto de equilibrio, la solución divergerá de éste con el tiempo
     
-    x_0 = 1.1556818961291992      
-    y_0 = 0
-    z_0 = 0
-    vx_0 = 0
-    vy_0 = 0
-    vz_0 = 0
-    
-    # Condiciones iniciales para el L3
-    
-    # x_0 = -1.0050626166357435             
+    # x_0 = 1.1556818961291992      
     # y_0 = 0
     # z_0 = 0
     # vx_0 = 0
     # vy_0 = 0
     # vz_0 = 0
     
+    # Condiciones iniciales para el L3  ----->  Punto de Lagrange inestable: Si las condiciones iniciales varian ligeramente del punto de equilibrio, la solución divergerá de éste con el tiempo
     
-    # # Condiciones iniciales para el L4
+    x_0 = -1.0050626166357435          
+    y_0 = 0
+    z_0 = 0
+    vx_0 = 0
+    vy_0 = 0
+    vz_0 = 0
+    
+    
+    # # Condiciones iniciales para el L4 ----->  Punto de Lagrange estable: Si las condiciones iniciales varian ligeramente, la solución volverá al punto de equilibrio
     
     # x_0 = 0.5 - pi_2         
     # y_0 = sqrt(3)/2
@@ -63,7 +63,7 @@ def Problema_Tres_Cuerpos_Restirngidos():
     # vy_0 = 0
     # vz_0 = 0
     
-    #  # Condiciones iniciales para el L5
+    #  # Condiciones iniciales para el L5  -----> Punto de Lagrange estable: Si las condiciones iniciales varian ligeramente, la solución volverá a la solución inicial
     
     # x_0 = 0.5 - pi_2         
     # y_0 = -sqrt(3)/2
@@ -81,7 +81,7 @@ def Problema_Tres_Cuerpos_Restirngidos():
     U_0 = hstack((r_0, v_0))                    # Matriz de posiciones y velocidades iniciales
 
     t_0 = 0                                     # Tiempo inicial 
-    t_f = 20                                  # Tiempo final
+    t_f = 25                                  # Tiempo final
     t_points = linspace(t_0, t_f, 1000)         
     
     
