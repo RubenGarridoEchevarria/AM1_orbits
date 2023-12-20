@@ -7,4 +7,4 @@ En este GitHub se presentan todos los códigos y resultados desarrollados en la 
 
 
 
-![La imagen no ha podido ser cargada](uses_simplediagram.pdf)
+![La imagen no ha podido ser cargada](Animaciones/Globos.jpg)
