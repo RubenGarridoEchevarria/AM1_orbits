@@ -24,6 +24,7 @@
 #print( "" )
 
 
+
 from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson
 
 from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem
@@ -46,10 +47,10 @@ h = 0.01
 t_final = 100
 N =  t_final/h
 t_values = arange(t0, t_final + h, h)
-U0 = array([0,1,0])
+U0 = array([0,1])
 
 print("Selecione el integrador temporal: 1 = Euler, 2 = RK4, 3 = Admas_Bashforth 4 Orden, 4 = Crank_Nicolson")
-Selector= input()  #Eligo que integrador temporal que va a usar para resolver el programa
+Selector=input()  #Eligo que integrador temporal que va a usar para resolver el programa
     
 
 try:
@@ -62,11 +63,11 @@ try:
     
     if Selector == 2:
 
-        U = Cauchy_problem(t_values, U0, RK4, VanDerPol_ForzadoEstocastico )                        
+        U = Cauchy_problem(t_values, U0, RK4, VanDerPol_Libre )                        
 
     if Selector == 3:
         
-       U  = Cauchy_problem(t_values, U0,Adams_Bashforth_4th_order, VanDerPol_ForzadoEstocastico)        
+       U  = Cauchy_problem(t_values, U0,Adams_Bashforth_4th_order, VanDerPol_Libre)        
         
     if Selector == 4:
    
@@ -82,7 +83,7 @@ except ValueError:
           
 #create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
    
-print(U)
+
 
 plt.plot(U[:,0], U[:,1])
 plt.show()

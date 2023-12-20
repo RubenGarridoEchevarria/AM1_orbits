@@ -19,5 +19,3 @@ def Cauchy_problem(t, U0, Temporal_integrator, Diferntial_operator):  #Defino el
 
     return U    #Devuelve la imagen de lo calculado por el integrador temporal
     
-
-        

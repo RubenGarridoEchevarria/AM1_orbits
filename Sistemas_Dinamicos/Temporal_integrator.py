@@ -4,7 +4,7 @@
 
 from scipy.optimize import newton
 from numpy import zeros, array, arange
-from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem
+
 
 
 
@@ -39,32 +39,46 @@ def RK4(U, dt, t, F):
 
 
 def Adams_Bashforth_4th_order(U, dt, t, F):
+    
+
+    
     N = len(U)
-    history = []
-
+    if t == 0:
+        global previous_U 
+        global previous_U_state
+        previous_U = zeros([3,N])
+        previous_U_state = zeros([3,1])
  
-
-    if len(history) < 4:
-
-        
-        if len(history) == 0:
-            history.append(U)
-        for _ in range(3 - len(history)):
-            U_next = U + dt * F(U, t)
-            history.append(U_next)
-            U = U_next
-            t += dt
-
+    # history = [None] * 4  # Lista para almacenar los últimos 4 resultados
  
-
-        return U_next
-
+    # Si hay resultados anteriores faltantes, utiliza Euler para calcularlos
+    if any(previous_U_state == 0):
+        for ii in range(3):
+            if previous_U_state[ii] == 0:
+                # Calcula los primeros pasos con el método de Euler
+                previous_U[ii,:] = F(U, t)
+                previous_U_state[ii] = 1
+                return (U + dt * previous_U[ii,:])  # Devuelve el resultado final después de los primeros pasos
+    
+    # Almacena los valores de previous_U en unas variables auxiliares
+    Un3 = previous_U[0,:]
+    Un2 = previous_U[1,:]
+    Un1 = previous_U[2,:]
  
-    f0 = F(history[-1], t - 3 * dt)
-    f1 = F(history[-2], t - 2 * dt)
-    f2 = F(history[-3], t - dt)
-    f3 = F(history[-4], t)
-
-    U_next = U + (dt / 24) * (55 * f3 - 59 * f2 + 37 * f1 - 9 * f0)
-    history.append(U_next)
-    return U_next       
+    # Adams-Bashforth de cuarto orden
+    f0 = Un3
+    f1 = Un2
+    f2 = Un1
+    f3 = F(U, t)
+ 
+    # Actualiza el historial eliminando el resultado más antiguo y agregando el nuevo
+    previous_U[0,:] = Un2
+    previous_U[1,:] = Un1
+    previous_U[2,:] = f3
+ 
+    return U + (dt / 24) * (55 * f3 - 59 * f2 + 37 * f1 - 9 * f0)    
+    
+    
+    
+    
+    

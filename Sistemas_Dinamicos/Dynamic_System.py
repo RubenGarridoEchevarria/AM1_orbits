@@ -58,7 +58,7 @@ def VanDerPol_Libre( U, t ):
 	x = U[0]			# La coordenada x es la primera componente del vector de estado.
 	y = U[1]			# La coordenada y es la segunda componente del vector de estado.
 
-	return array( [y , 1*(1 - x**2)*y - x  ] )
+	return array( [U[1] , 1*(1 - U[0]**2)*U[1] - U[0]  ] )
 
 def VanDerPol_Libre2( U, t ):
 
