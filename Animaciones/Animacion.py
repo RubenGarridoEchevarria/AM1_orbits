@@ -39,7 +39,7 @@ def create_animation(anim_U, anim_fps, anim_duration, anim_save_name,N):
    plt.ylim(ylim)
    plt.xlabel('$x$', fontdict = {'fontsize':14, 'fontweight':'normal', 'color':'k'})
    plt.ylabel('$dx/dt$', fontdict = {'fontsize':14, 'fontweight':'normal', 'color':'k'})
-   plt.plot(0.1,0,marker='o', color='b')
+   
  
    # Creacion y guardado de la animacion
    ani = animation.FuncAnimation(plt.gcf(), update, frames=anim_frames, init_func=init, blit=True, interval=anim_interval)

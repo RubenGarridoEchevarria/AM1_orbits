@@ -70,7 +70,7 @@ def VanDerPol_ForzadoArmonico( U, t ):
 	x = U[0]			# La coordenada x es la primera componente del vector de estado.
 	y = U[1]			# La coordenada y es la segunda componente del vector de estado.
 
-	return array( [y ,   -8.53*(1-x**2) * y - 1 * x - 1.2*cos(t)  ] )
+	return array( [y ,   -8.53*(1-U[0]**2) * U[1] - 1 * U[0] - 1.2*cos(t)  ] )
 
 
 def VanDerPol_ForzadoEstocastico(U, t ):

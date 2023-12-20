@@ -13,6 +13,7 @@ def Plot_2D(Data_X, Data_Y, Label_X, Label_Y):
     plt.xlabel(Label_X)
     plt.ylabel(Label_Y)
     plt.grid(True)
+    plt.show()
 
 
 

@@ -83,14 +83,14 @@ except ValueError:
           print("El valor introducido no es válido")   
           
           
-#create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
+create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
 
 Plot_2D(U[:,0], U[:,1], "x", "y")   
 
-Plot_3D(U[:,0], U[:,1], U[:,2], "x", "y")      # Solo cuado se resuelva un problema de Cauchy con condiciones en tres dimensiones
+#Plot_3D(U[:,0], U[:,1], U[:,2], "x", "y")      # Solo cuado se resuelva un problema de Cauchy con condiciones en tres dimensiones
 
-Histogram_2D(U[:,0], U[:,1], "x", "y")   
-Histogram_3D(U[:,0], U[:,1], "x", "y")
+#Histogram_2D(U[:,0], U[:,1], "x", "y")   
+#Histogram_3D(U[:,0], U[:,1], "x", "y")
 
 
 
