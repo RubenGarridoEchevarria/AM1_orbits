@@ -4,7 +4,7 @@
 
 from scipy.optimize import newton
 from numpy import zeros, array, arange
-from multiprocessing import Pool
+
 
 
 

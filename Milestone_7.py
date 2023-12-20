@@ -28,7 +28,9 @@
 from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson
 
 from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem
-from Sistemas_Dinamicos.Animacion import create_animation
+from Animaciones.Animacion import create_animation
+from Animaciones.Graphics import plot_2D_system, plot_3D_system
+from Animaciones.Histogram import plot_histogram
 from Sistemas_Dinamicos.Dynamic_System import VanDerPol_Libre, VanDerPol_ForzadoArmonico, VanDerPol_ForzadoEstocastico, VanDerPol_Libre2, VanDerPol_Libre3
 
 import matplotlib.pyplot as plt
@@ -44,14 +46,14 @@ t0 = 0
 h = 0.01
 
 
-t_final = 100
+t_final = 50
 N =  t_final/h
 t_values = arange(t0, t_final + h, h)
-U0 = array([0,1,0])
+U0 = array([0.1,0.1])
 
 print("Selecione el integrador temporal: 1 = Euler, 2 = RK4, 3 = Admas_Bashforth 4 Orden, 4 = Crank_Nicolson")
-Selector=input()  #Eligo que integrador temporal que va a usar para resolver el programa
-    
+# Selector=input()  #Eligo que integrador temporal que va a usar para resolver el programa
+Selector=2  
 
 try:
     Selector=float(Selector)
@@ -63,7 +65,7 @@ try:
     
     if Selector == 2:
 
-        U = Cauchy_problem(t_values, U0, RK4, VanDerPol_ForzadoEstocastico )                        
+        U = Cauchy_problem(t_values, U0, RK4, VanDerPol_ForzadoArmonico)                        
 
     if Selector == 3:
         
@@ -81,12 +83,13 @@ except ValueError:
           print("El valor introducido no es válido")   
           
           
-#create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
+create_animation(U, 10, 25, 'Animaciones/Anim_VDPL_Muneg.gif',N)
    
 
 
 plt.plot(U[:,0], U[:,1])
 plt.show()
+
 
 #plt.figure()
 ##plt.grid( axis = 'both' , color = 'gainsboro' , linestyle = 'none' )
@@ -323,5 +326,5 @@ ax.set_ylabel('Eje Y')
 ax.set_zlabel('Frecuencia')
 ax.set_title('Histograma 3D')
 
-#plt.show()
+plt.show()
 
