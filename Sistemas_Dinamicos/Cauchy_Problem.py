@@ -19,33 +19,5 @@ def Cauchy_problem(t, U0, Temporal_integrator, Diferntial_operator):  #Defino el
 
     return U    #Devuelve la imagen de lo calculado por el integrador temporal
     
-def Cauchy_problem_Adams(t, U0, Temporal_integrator,Diferntial_operator,h):
-        
-        t0 = t[0] 
-        
-        U = zeros((len(t),3))
-    
-  
-        U1  = U0 + h*Diferntial_operator(U0,t[0])
 
-      
-        U2 = U1 + h*Diferntial_operator(U1,t[1])
-        
-
-        
-        U3 = U2 + h*Diferntial_operator(U2,t[2])
-
-
-        U[0,:] = U0
-        U[1,:] = U1
-        U[2,:] = U2
-        U[3,:] = U3
-
-        
-        for i in range(3, len(t)-1):
-                
-                U[i+1,:] = Temporal_integrator( U[i,:], U[i-1, :], U[i-2, :], U[i-3,:] ,t[i+1] - t[i], t[i],  Diferntial_operator)
-        
-    
-        return U
         

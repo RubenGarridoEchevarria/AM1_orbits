@@ -24,9 +24,9 @@
 #print( "" )
 
 
-from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson, Adams_Bashforth_4th_order_2
-from Funciones_Auxiliares.RK_Embebido import Embedded_RK
-from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem, Cauchy_problem_Adams
+from Sistemas_Dinamicos.Temporal_integrator import  RK4, Adams_Bashforth_4th_order, Euler, Crank_Nicolson
+
+from Sistemas_Dinamicos.Cauchy_Problem import Cauchy_problem
 from Sistemas_Dinamicos.Animacion import create_animation
 from Sistemas_Dinamicos.Dynamic_System import VanDerPol_Libre, VanDerPol_ForzadoArmonico, VanDerPol_ForzadoEstocastico, VanDerPol_Libre2, VanDerPol_Libre3
 
@@ -66,17 +66,13 @@ try:
 
     if Selector == 3:
         
-       U , t_values = Adams_Bashforth_4th_order(h, t_values,t0, U0, VanDerPol_ForzadoEstocastico)        
+       U  = Cauchy_problem(t_values, U0,Adams_Bashforth_4th_order, VanDerPol_ForzadoEstocastico)        
         
     if Selector == 4:
    
         U = Cauchy_problem(t_values, U0, Crank_Nicolson, VanDerPol_ForzadoEstocastico )
         
-    if Selector == 5:
 
-        
-        U = Cauchy_problem_Adams(t_values, U0, Adams_Bashforth_4th_order_2, VanDerPol_ForzadoEstocastico,h )
-        
         
 
             

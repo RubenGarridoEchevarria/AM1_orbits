@@ -37,48 +37,34 @@ def RK4(U, dt, t, F):
     return U + dt * (K1 + 2*K2 + 2*K3 +K4)/6
 
 
-def Adams_Bashforth_4th_order(h, t_values, t0, U0, f):
-    
-    n = len(t_values)
-  
-    U = zeros((len(t_values),3))
-    # Condiciones iniciales
-    t_values[0] =  t0
-   
 
-    U1 = U0 + h*f(U0,t_values[0])
-    t_values[1] = t0 + h
-    U2= U1 + h*f(U1,t_values[1])
-    t_values[2] = t_values[1] + h
-    U3= U2 + h*f(U2,t_values[2])
+def Adams_Bashforth_4th_order(U, dt, t, F):
+    N = len(U)
+    history = []
 
+ 
 
-    U[0,:] = U0
-    U[1,:] = U1
-    U[2,:] = U2
-    U[3,:] = U3
+    if len(history) < 4:
 
-    
-    
-    
-    for i in range(3, n - 1):
-        U[i+1,:] = U[i,:] + h / 24 * (55 * f(U[ i,:], t_values[i])
-                                            - 59 * f( U[i - 1,:],t_values[i - 1])
-                                            + 37 * f(U[i - 2, :], t_values[i - 2])
-                                            - 9 * f(U[i - 3,:],t_values[i - 3]))
         
-        
-        
-        t_values[i + 1] = t_values[i] + h
-        
+        if len(history) == 0:
+            history.append(U)
+        for _ in range(3 - len(history)):
+            U_next = U + dt * F(U, t)
+            history.append(U_next)
+            U = U_next
+            t += dt
 
-    return U , t_values
+ 
 
+        return U_next
 
+ 
+    f0 = F(history[-1], t - 3 * dt)
+    f1 = F(history[-2], t - 2 * dt)
+    f2 = F(history[-3], t - dt)
+    f3 = F(history[-4], t)
 
-
-
-def Adams_Bashforth_4th_order_2(U, U1, U2 , U3, dt, t, F):
-        
-
-    return U + (dt /24) * ( 55 * F(U, t) - 59 * F(U1,t) + 37 * F(U2,t) -9 * F(U3,t))
+    U_next = U + (dt / 24) * (55 * f3 - 59 * f2 + 37 * f1 - 9 * f0)
+    history.append(U_next)
+    return U_next       
