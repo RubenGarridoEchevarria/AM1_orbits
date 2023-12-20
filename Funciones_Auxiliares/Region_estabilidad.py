@@ -23,7 +23,7 @@ def Stability_Region( Scheme , N , x0 , xf , y0 , yf):
 
 def test_Stability_region():
 
-    schemes = [Euler]
+    schemes = [RK4]
 
     for scheme in schemes:
 
