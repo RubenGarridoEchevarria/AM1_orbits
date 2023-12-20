@@ -47,7 +47,7 @@ h = 0.01
 t_final = 100
 N =  t_final/h
 t_values = arange(t0, t_final + h, h)
-U0 = array([0,1])
+U0 = array([0,1,0])
 
 print("Selecione el integrador temporal: 1 = Euler, 2 = RK4, 3 = Admas_Bashforth 4 Orden, 4 = Crank_Nicolson")
 Selector=input()  #Eligo que integrador temporal que va a usar para resolver el programa
@@ -63,11 +63,11 @@ try:
     
     if Selector == 2:
 
-        U = Cauchy_problem(t_values, U0, RK4, VanDerPol_Libre )                        
+        U = Cauchy_problem(t_values, U0, RK4, VanDerPol_ForzadoEstocastico )                        
 
     if Selector == 3:
         
-       U  = Cauchy_problem(t_values, U0,Adams_Bashforth_4th_order, VanDerPol_Libre)        
+       U  = Cauchy_problem(t_values, U0,Adams_Bashforth_4th_order, VanDerPol_ForzadoEstocastico)        
         
     if Selector == 4:
    

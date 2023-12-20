@@ -4,7 +4,7 @@
 
 from scipy.optimize import newton
 from numpy import zeros, array, arange
-
+from multiprocessing import Pool
 
 
 
@@ -15,15 +15,17 @@ def Euler(U, dt, t, F):         #Resuelve el problema de Cauchy con el método d
 
 
 def Crank_Nicolson(U, dt, t, F):  #Resuelve el problema de Cauchy con el método de Crank-Nicolson
-
-    def residual(X):                        #Define la función residual que solo tiene como argumento X, todo lo demás le viene dado por los datod de las demás funciones
-
-        return X - a - dt/2*F(X, t+dt)   #Devuleve la imagen que es un sistema de ecuaciones no linela
     
+   
 
-    a = U + dt/2 * F(U, t)
+        def residual(X):                        #Define la función residual que solo tiene como argumento X, todo lo demás le viene dado por los datod de las demás funciones
+
+            return X - a - dt/2*F(X, t+dt)   #Devuleve la imagen que es un sistema de ecuaciones no linela
+        
+
+        a = U + dt/2 * F(U, t)
     
-    return newton(residual, U, maxiter=600)    #Resuleve el sistema de ecuaciones no lineal por el método de Newton
+        return newton(residual, U, maxiter=600)    #Resuleve el sistema de ecuaciones no lineal por el método de Newton
 
 
 
