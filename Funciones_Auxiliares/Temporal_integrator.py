@@ -35,42 +35,42 @@ def RK4(U, dt, t, F):
     return U + dt * (K1 + 2*K2 + 2*K3 +K4)/6
 
 
-def Adams_Bashforth_4th_order(h, t_values, t0, U0, f):
-    
-    
+def Adams_Bashforth_4th_order(U, dt, t, F):
     
 
     
-    n = len(t_values)
+    N = len(U)
+    if t == 0:
+        global previous_U 
+        global previous_U_state
+        previous_U = zeros([3,N])
+        previous_U_state = zeros([3,1])
+ 
+    # history = [None] * 4  # Lista para almacenar los últimos 4 resultados
+ 
+    # Si hay resultados anteriores faltantes, utiliza Euler para calcularlos
+    if any(previous_U_state == 0):
+        for ii in range(3):
+            if previous_U_state[ii] == 0:
+                # Calcula los primeros pasos con el método de Euler
+                previous_U[ii,:] = F(U, t)
+                previous_U_state[ii] = 1
+                return (U + dt * previous_U[ii,:])  # Devuelve el resultado final después de los primeros pasos
     
-    U = zeros((len(t_values), 3))
-    # Condiciones iniciales
-    t_values[0] =  t0
-
-    U1 = U0 + h*f(t_values[0],U0)
-    t_values[1] = t0 + h
-    U2= U1 + h*f(t_values[1],U1)
-    t_values[2] = t_values[1] + h
-    U3= U2 + h*f(t_values[2],U2)
-
-
-    U[0,:] = U0
-    U[1,:] = U1
-    U[2,:] = U2
-    U[3,:] = U3
-
-    
-    
-    
-    for i in range(3, n - 1):
-        U[i+1,:] = U[i,:] + h / 24 * (55 * f(t_values[i], U[i,:])
-                                            - 59 * f(t_values[i - 1], U[i - 1,:])
-                                            + 37 * f(t_values[i - 2], U[i - 2,:])
-                                            - 9 * f(t_values[i - 3], U[i - 3,:]))
-        
-        
-        
-        t_values[i + 1] = t_values[i] + h
-        
-
-    return t_values, U
+    # Almacena los valores de previous_U en unas variables auxiliares
+    Un3 = previous_U[0,:]
+    Un2 = previous_U[1,:]
+    Un1 = previous_U[2,:]
+ 
+    # Adams-Bashforth de cuarto orden
+    f0 = Un3
+    f1 = Un2
+    f2 = Un1
+    f3 = F(U, t)
+ 
+    # Actualiza el historial eliminando el resultado más antiguo y agregando el nuevo
+    previous_U[0,:] = Un2
+    previous_U[1,:] = Un1
+    previous_U[2,:] = f3
+ 
+    return U + (dt / 24) * (55 * f3 - 59 * f2 + 37 * f1 - 9 * f0)   
