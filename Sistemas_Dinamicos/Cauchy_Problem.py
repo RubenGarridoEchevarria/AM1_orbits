@@ -3,14 +3,6 @@ from numpy import zeros, arange
 
 
 
-def RK4(U, dt, t, F):
-
-    K1=F(U,t)
-    K2=F(U + dt * K1/2, t + dt/2)
-    K3=F(U + dt * K2/2, t + dt/2)
-    K4=F(U + dt * K3, t + dt)
-
-    return U + dt * (K1 + 2*K2 + 2*K3 +K4)/6
 
 def Cauchy_problem(t, U0, Temporal_integrator, Diferntial_operator):  #Defino el problema de Cauchy Con la F, la condición inicial y se introducé el integrador temporal que se usa
     
